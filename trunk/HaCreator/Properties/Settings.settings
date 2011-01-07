@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HaCreator.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MapleVersion" Type="MapleLib.WzLib.WzMapleVersion" Scope="User">
+      <Value Profile="(Default)">GMS</Value>
+    </Setting>
+    <Setting Name="MapleFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LastMapSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">800, 800</Value>
+    </Setting>
+    <Setting Name="loadRadioIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="newTab" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
