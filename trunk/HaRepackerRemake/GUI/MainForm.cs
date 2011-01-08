@@ -1278,7 +1278,7 @@ namespace HaRepacker.GUI
 
         private void viewHelpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string helpPath = Path.Combine(Application.StartupPath, "HRHelp.htm");
+            string helpPath = Path.Combine(Application.StartupPath, "Help.htm");
             if (File.Exists(helpPath))
                 Process.Start(helpPath);
             else
