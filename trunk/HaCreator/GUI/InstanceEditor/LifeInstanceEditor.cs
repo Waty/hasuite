@@ -26,7 +26,7 @@ namespace HaCreator.GUI.InstanceEditor
             limitedNameEnable.Tag = limitedNameBox;
             mobTimeEnable.Tag = mobTimeBox;
             teamEnable.Tag = teamBox;
-            typeEnable.Tag = typeBox;
+            //typeEnable.Tag = typeBox;
 
             xInput.Value = item.X;
             yInput.Value = item.Y;
@@ -35,7 +35,7 @@ namespace HaCreator.GUI.InstanceEditor
             LoadOptionalInt(item.Info, infoEnable, infoBox);
             LoadOptionalInt(item.Team, teamEnable, teamBox);
             LoadOptionalInt(item.MobTime, mobTimeEnable, mobTimeBox);
-            LoadOptionalStr(item.TypeStr, typeEnable, typeBox);
+            //LoadOptionalStr(item.TypeStr, typeEnable, typeBox);
             LoadOptionalStr(item.LimitedName, limitedNameEnable, limitedNameBox);
             hideBox.Checked = item.Hide;
 
@@ -62,7 +62,7 @@ namespace HaCreator.GUI.InstanceEditor
             item.MobTime = GetOptionalInt(mobTimeEnable, mobTimeBox);
             item.Info = GetOptionalInt(infoEnable, infoBox);
             item.Team = GetOptionalInt(teamEnable, teamBox);
-            item.TypeStr = GetOptionalStr(typeEnable, typeBox);
+            //item.TypeStr = GetOptionalStr(typeEnable, typeBox);
             item.LimitedName = GetOptionalStr(limitedNameEnable, limitedNameBox);
             item.Hide = hideBox.Checked;
             Close();
@@ -80,13 +80,13 @@ namespace HaCreator.GUI.InstanceEditor
         private void LoadOptionalInt(int? value, CheckBoxX cbx, IntegerInput box)
         {
             if (value == null) cbx.Checked = false;
-            else cbx.Checked = true; box.Value = (int)value;
+            else { cbx.Checked = true; box.Value = (int)value; }
         }
 
         private void LoadOptionalStr(string value, CheckBoxX cbx, TextBoxX box)
         {
             if (value == null) cbx.Checked = false;
-            else cbx.Checked = true; box.Text = value;
+            else { cbx.Checked = true; box.Text = value; }
         }
 
         private int? GetOptionalInt(CheckBoxX cbx, IntegerInput box)

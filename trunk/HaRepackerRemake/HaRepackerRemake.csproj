@@ -290,7 +290,7 @@
     <None Include="Resources\asdf.exe.manifest.bmp" />
     <None Include="Resources\find.png" />
     <None Include="Resources\boogie.png" />
-    <None Include="HRHelp.htm">
+    <None Include="Help.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="sharingan.ico" />

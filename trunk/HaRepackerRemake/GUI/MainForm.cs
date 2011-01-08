@@ -159,7 +159,7 @@ namespace HaRepacker.GUI
         }
 
         #region FH Mapper
-        IWzFile GetParentWzFile(WzNode SelectedNode)
+        /*IWzFile GetParentWzFile(WzNode SelectedNode)
         {
             WzNode parent = (WzNode)SelectedNode.Parent;
             while (parent.Level > 0)
@@ -167,11 +167,11 @@ namespace HaRepacker.GUI
                 parent = (WzNode)parent.Parent;
             }
             return (IWzFile)parent.Tag;
-        }
+        }*/
 
         void SaveMap(WzImage img)
         {
-            WzFile wzFile = (WzFile)GetParentWzFile((WzNode)MainPanel.DataTree.SelectedNode);
+            WzFile wzFile = (WzFile)((IWzObject)MainPanel.DataTree.SelectedNode.Tag).WzFileParent;
             // Spawnpoint foothold and portal lists
             List<SpawnPoint.Spawnpoint> MSPs = new List<SpawnPoint.Spawnpoint>();
             List<FootHold.Foothold> FHs = new List<FootHold.Foothold>();
@@ -614,7 +614,7 @@ namespace HaRepacker.GUI
                 if (MainPanel.DataTree.SelectedNode.Tag is IWzFile)
                     node = (WzNode)MainPanel.DataTree.SelectedNode;
                 else
-                    node = (WzNode)GetParentWzFile((WzNode)MainPanel.DataTree.SelectedNode).HRTag;
+                    node = ((WzNode)MainPanel.DataTree.SelectedNode).TopLevelNode;
             }
             if (node.Tag is WzFile)
                 new SaveForm(MainPanel, node).ShowDialog();
@@ -1147,10 +1147,11 @@ namespace HaRepacker.GUI
         private void xMLToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             if (MainPanel.DataTree.SelectedNode == null ||(!(MainPanel.DataTree.SelectedNode.Tag is WzDirectory) && !(MainPanel.DataTree.SelectedNode.Tag is WzFile) && !(MainPanel.DataTree.SelectedNode.Tag is IPropertyContainer))) return;
-            IWzObject obj = (IWzObject)MainPanel.DataTree.SelectedNode.Tag;
+             IWzFile wzFile = ((IWzObject)MainPanel.DataTree.SelectedNode.Tag).WzFileParent;
+            if (!(wzFile is WzFile)) return;
             OpenFileDialog dialog = new OpenFileDialog() { Title = "Select the XML files", Filter = "eXtended Markup Language (*.xml)|*.xml", Multiselect = true };
             if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
-            WzXmlDeserializer deserializer = new WzXmlDeserializer(true, WzTool.GetIvByMapleVersion(((WzFile)obj.GetWzFile()).MapleVersion));
+            WzXmlDeserializer deserializer = new WzXmlDeserializer(true, WzTool.GetIvByMapleVersion(wzFile.MapleVersion));
             yesToAll = false;
             noToAll = false;
             threadDone = false;
@@ -1255,10 +1256,11 @@ namespace HaRepacker.GUI
         private void iMGToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             if (MainPanel.DataTree.SelectedNode == null || (!(MainPanel.DataTree.SelectedNode.Tag is WzDirectory) && !(MainPanel.DataTree.SelectedNode.Tag is WzFile) && !(MainPanel.DataTree.SelectedNode.Tag is IPropertyContainer))) return;
-            IWzObject obj = (IWzObject)MainPanel.DataTree.SelectedNode.Tag;
+            IWzFile wzFile = ((IWzObject)MainPanel.DataTree.SelectedNode.Tag).WzFileParent;
+            if (!(wzFile is WzFile)) return;
             OpenFileDialog dialog = new OpenFileDialog() { Title = "Select the IMG files", Filter = "WZ Image Files (*.img)|*.img", Multiselect = true };
             if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
-            byte[] iv = WzTool.GetIvByMapleVersion(((WzFile)obj.GetWzFile()).MapleVersion);
+            byte[] iv = WzTool.GetIvByMapleVersion(wzFile.MapleVersion);
             WzImgDeserializer deserializer = new WzImgDeserializer(false);
             yesToAll = false;
             noToAll = false;

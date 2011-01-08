@@ -82,20 +82,13 @@
     <Reference Include="Microsoft.DirectX.AudioVideoPlayback, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
@@ -142,21 +135,6 @@
     </Compile>
     <None Include="Arial.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="GUI\Form2.cs">
-      <SubType>Form</SubType>
-    </None>
-    <None Include="GUI\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </None>
-    <None Include="GUI\FormLol.cs">
-      <SubType>Form</SubType>
-    </None>
-    <None Include="GUI\EditorF.cs">
-      <SubType>Form</SubType>
-    </None>
-    <None Include="GUI\EditorF.Designer.cs">
-      <DependentUpon>EditorF.cs</DependentUpon>
     </None>
     <Compile Include="GUI\Editor.cs">
       <SubType>Form</SubType>
@@ -231,12 +209,6 @@
       <DependentUpon>ObjectInstanceEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="MapEditor\BoardItemsManager.cs" />
-    <None Include="GUI\EditorO.cs">
-      <SubType>Form</SubType>
-    </None>
-    <None Include="GUI\EditorO.designer.cs">
-      <DependentUpon>EditorO.cs</DependentUpon>
-    </None>
     <Compile Include="GUI\ExceptionHandler.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,12 +246,6 @@
     <Compile Include="CustomControls\DirectXHolder.Designer.cs">
       <DependentUpon>DirectXHolder.cs</DependentUpon>
     </Compile>
-    <None Include="GUI\Form1.cs">
-      <SubType>Form</SubType>
-    </None>
-    <None Include="GUI\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </None>
     <Compile Include="MapEditor\FontEngine.cs" />
     <Compile Include="MapEditor\InputHandler.cs" />
     <Compile Include="MapEditor\ISnappable.cs" />
@@ -317,13 +283,6 @@
       <DependentUpon>About.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="GUI\EditorF.resx">
-      <DependentUpon>EditorF.cs</DependentUpon>
-    </None>
-    <None Include="GUI\EditorO.resx">
-      <DependentUpon>EditorO.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
     <EmbeddedResource Include="GUI\Editor.resx">
       <DependentUpon>Editor.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,9 +290,6 @@
       <DependentUpon>ExceptionHandler.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="GUI\Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </None>
     <EmbeddedResource Include="GUI\InfoEditor.resx">
       <DependentUpon>InfoEditor.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -379,10 +335,6 @@
       <DependentUpon>Load.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="GUI\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
     <EmbeddedResource Include="CustomControls\SoundPlayer.resx">
       <DependentUpon>SoundPlayer.cs</DependentUpon>
       <SubType>Designer</SubType>
