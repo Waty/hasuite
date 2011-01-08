@@ -44,13 +44,11 @@
             this.mobTimeBox = new DevComponents.Editors.IntegerInput();
             this.mobTimeEnable = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.limitedNameEnable = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.typeEnable = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.infoEnable = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.teamEnable = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.hideBox = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.infoBox = new DevComponents.Editors.IntegerInput();
             this.teamBox = new DevComponents.Editors.IntegerInput();
-            this.typeBox = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.limitedNameBox = new DevComponents.DotNetBar.Controls.TextBoxX();
             ((System.ComponentModel.ISupportInitialize)(this.xInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yInput)).BeginInit();
@@ -259,29 +257,13 @@
             // 
             this.limitedNameEnable.BackgroundStyle.Class = "";
             this.limitedNameEnable.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.limitedNameEnable.Location = new System.Drawing.Point(131, 156);
+            this.limitedNameEnable.Location = new System.Drawing.Point(131, 130);
             this.limitedNameEnable.Name = "limitedNameEnable";
             this.limitedNameEnable.Size = new System.Drawing.Size(90, 15);
             this.limitedNameEnable.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.limitedNameEnable.TabIndex = 16;
             this.limitedNameEnable.Text = "Limited Name";
             this.limitedNameEnable.CheckedChanged += new System.EventHandler(this.enablingCheckBoxCheckChanged);
-            // 
-            // typeEnable
-            // 
-            this.typeEnable.AutoSize = true;
-            // 
-            // 
-            // 
-            this.typeEnable.BackgroundStyle.Class = "";
-            this.typeEnable.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.typeEnable.Location = new System.Drawing.Point(131, 131);
-            this.typeEnable.Name = "typeEnable";
-            this.typeEnable.Size = new System.Drawing.Size(47, 15);
-            this.typeEnable.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.typeEnable.TabIndex = 17;
-            this.typeEnable.Text = "Type";
-            this.typeEnable.CheckedChanged += new System.EventHandler(this.enablingCheckBoxCheckChanged);
             // 
             // infoEnable
             // 
@@ -362,19 +344,6 @@
             this.teamBox.Size = new System.Drawing.Size(50, 20);
             this.teamBox.TabIndex = 22;
             // 
-            // typeBox
-            // 
-            // 
-            // 
-            // 
-            this.typeBox.Border.Class = "TextBoxBorder";
-            this.typeBox.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.typeBox.Enabled = false;
-            this.typeBox.Location = new System.Drawing.Point(227, 128);
-            this.typeBox.Name = "typeBox";
-            this.typeBox.Size = new System.Drawing.Size(63, 20);
-            this.typeBox.TabIndex = 23;
-            // 
             // limitedNameBox
             // 
             // 
@@ -383,7 +352,7 @@
             this.limitedNameBox.Border.Class = "TextBoxBorder";
             this.limitedNameBox.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.limitedNameBox.Enabled = false;
-            this.limitedNameBox.Location = new System.Drawing.Point(227, 154);
+            this.limitedNameBox.Location = new System.Drawing.Point(227, 128);
             this.limitedNameBox.Name = "limitedNameBox";
             this.limitedNameBox.Size = new System.Drawing.Size(63, 20);
             this.limitedNameBox.TabIndex = 24;
@@ -394,13 +363,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 233);
             this.Controls.Add(this.limitedNameBox);
-            this.Controls.Add(this.typeBox);
             this.Controls.Add(this.teamBox);
             this.Controls.Add(this.infoBox);
             this.Controls.Add(this.hideBox);
             this.Controls.Add(this.teamEnable);
             this.Controls.Add(this.infoEnable);
-            this.Controls.Add(this.typeEnable);
             this.Controls.Add(this.limitedNameEnable);
             this.Controls.Add(this.mobTimeEnable);
             this.Controls.Add(this.mobTimeBox);
@@ -452,13 +419,11 @@
         private DevComponents.Editors.IntegerInput mobTimeBox;
         private DevComponents.DotNetBar.Controls.CheckBoxX mobTimeEnable;
         private DevComponents.DotNetBar.Controls.CheckBoxX limitedNameEnable;
-        private DevComponents.DotNetBar.Controls.CheckBoxX typeEnable;
         private DevComponents.DotNetBar.Controls.CheckBoxX infoEnable;
         private DevComponents.DotNetBar.Controls.CheckBoxX teamEnable;
         private DevComponents.DotNetBar.Controls.CheckBoxX hideBox;
         private DevComponents.Editors.IntegerInput infoBox;
         private DevComponents.Editors.IntegerInput teamBox;
-        private DevComponents.DotNetBar.Controls.TextBoxX typeBox;
         private DevComponents.DotNetBar.Controls.TextBoxX limitedNameBox;
     }
 }

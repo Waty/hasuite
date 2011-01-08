@@ -223,6 +223,20 @@ namespace HaRepackerLib
             if (Tag is IWzImageProperty) ((IWzImageProperty)Tag).ParentImage.Changed = true;
         }
 
+        public WzNode TopLevelNode
+        {
+            get
+            {
+                WzNode parent = this;
+                while (parent.Level > 0)
+                {
+                    parent = (WzNode)parent.Parent;
+                }
+                return parent;
+            }
+        }
+
+
         /*private ToolStripMenuItem DeleteItem;
         private ToolStripMenuItem Export;
         private ToolStripMenuItem AddDir;
