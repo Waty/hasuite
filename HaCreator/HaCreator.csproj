@@ -440,6 +440,7 @@
     <None Include="Resources\RegenMinimap.png" />
     <None Include="Resources\Sharingan32.png" />
     <None Include="Resources\Sharingan60.png" />
+    <None Include="Resources\help_icon.png" />
     <Content Include="sharingan.ico" />
   </ItemGroup>
   <ItemGroup>

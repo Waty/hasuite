@@ -88,6 +88,13 @@ namespace HaCreator.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap help_icon {
+            get {
+                object obj = ResourceManager.GetObject("help_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap magnet_32 {
             get {
                 object obj = ResourceManager.GetObject("magnet_32", resourceCulture);

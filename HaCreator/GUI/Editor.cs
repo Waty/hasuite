@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using DevComponents.Editors;
 using HaCreator.MapEditor;
-using HaCreator.WzStructure;
 using MapleLib.Helpers;
 using MapleLib.WzLib;
 using MapleLib.WzLib.WzProperties;
@@ -380,6 +381,15 @@ namespace HaCreator.GUI
             MapSimulator.MapSimulator.CreateMapSimulator(multiBoard.SelectedBoard).ShowDialog();
             multiBoard.DeviceReady = true;
             multiBoard.RenderFrame();
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            string helpPath = Path.Combine(Application.StartupPath, "Help.htm");
+            if (File.Exists(helpPath))
+                Process.Start(helpPath);
+            else
+                HaRepackerLib.Warning.Error("Help could not be shown because the help file (HRHelp.htm) was not found");
         }
         #endregion
 

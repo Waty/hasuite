@@ -44,12 +44,6 @@
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.objL1ListBox = new System.Windows.Forms.ListBox();
             this.objImagesContainer = new HaCreator.KoolkLVContainer();
-            this.panelDockContainer1 = new DevComponents.DotNetBar.PanelDockContainer();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.tileBrowse = new System.Windows.Forms.Button();
-            this.tileSetList = new System.Windows.Forms.ListBox();
-            this.tileImagesContainer = new HaCreator.KoolkLVContainer();
             this.panelDockContainer3 = new DevComponents.DotNetBar.PanelDockContainer();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
@@ -71,6 +65,12 @@
             this.portalImageContainer = new HaCreator.KoolkLVContainer();
             this.panelDockContainer6 = new DevComponents.DotNetBar.PanelDockContainer();
             this.miscItemsContainer = new HaCreator.KoolkLVContainer();
+            this.panelDockContainer1 = new DevComponents.DotNetBar.PanelDockContainer();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.tileBrowse = new System.Windows.Forms.Button();
+            this.tileSetList = new System.Windows.Forms.ListBox();
+            this.tileImagesContainer = new HaCreator.KoolkLVContainer();
             this.tileDockBox = new DevComponents.DotNetBar.DockContainerItem();
             this.objsDockBox = new DevComponents.DotNetBar.DockContainerItem();
             this.bgDockBox = new DevComponents.DotNetBar.DockContainerItem();
@@ -133,12 +133,7 @@
             this.saveButton = new DevComponents.DotNetBar.ButtonItem();
             this.repackButton = new DevComponents.DotNetBar.ButtonItem();
             this.infoButton = new DevComponents.DotNetBar.ButtonItem();
-            this.galleryContainer1 = new DevComponents.DotNetBar.GalleryContainer();
-            this.labelItem8 = new DevComponents.DotNetBar.LabelItem();
-            this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem9 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem10 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem11 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnHelp = new DevComponents.DotNetBar.ButtonItem();
             this.itemContainer4 = new DevComponents.DotNetBar.ItemContainer();
             this.settingsMenuButton = new DevComponents.DotNetBar.ButtonItem();
             this.exitButton = new DevComponents.DotNetBar.ButtonItem();
@@ -165,15 +160,6 @@
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
-            this.panelDockContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
             this.panelDockContainer3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).BeginInit();
             this.splitContainer6.Panel1.SuspendLayout();
@@ -195,6 +181,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.lifePictureBox)).BeginInit();
             this.panelDockContainer5.SuspendLayout();
             this.panelDockContainer6.SuspendLayout();
+            this.panelDockContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.ribbonControl.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
@@ -270,11 +265,11 @@
             this.bar1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
             this.bar1.AutoSyncBarCaption = true;
             this.bar1.CloseSingleTab = true;
-            this.bar1.Controls.Add(this.panelDockContainer2);
             this.bar1.Controls.Add(this.panelDockContainer1);
+            this.bar1.Controls.Add(this.panelDockContainer5);
+            this.bar1.Controls.Add(this.panelDockContainer2);
             this.bar1.Controls.Add(this.panelDockContainer3);
             this.bar1.Controls.Add(this.panelDockContainer4);
-            this.bar1.Controls.Add(this.panelDockContainer5);
             this.bar1.Controls.Add(this.panelDockContainer6);
             this.bar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.bar1.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.Caption;
@@ -288,13 +283,13 @@
             this.bar1.LayoutType = DevComponents.DotNetBar.eLayoutType.DockContainer;
             this.bar1.Location = new System.Drawing.Point(3, 0);
             this.bar1.Name = "bar1";
-            this.bar1.SelectedDockTab = 1;
+            this.bar1.SelectedDockTab = 0;
             this.bar1.Size = new System.Drawing.Size(229, 585);
             this.bar1.Stretch = true;
             this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bar1.TabIndex = 0;
             this.bar1.TabStop = false;
-            this.bar1.Text = "Objects";
+            this.bar1.Text = "Tiles";
             // 
             // panelDockContainer2
             // 
@@ -403,87 +398,6 @@
             this.objImagesContainer.Name = "objImagesContainer";
             this.objImagesContainer.Size = new System.Drawing.Size(223, 317);
             this.objImagesContainer.TabIndex = 0;
-            // 
-            // panelDockContainer1
-            // 
-            this.panelDockContainer1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelDockContainer1.Controls.Add(this.splitContainer1);
-            this.panelDockContainer1.Location = new System.Drawing.Point(3, 23);
-            this.panelDockContainer1.Name = "panelDockContainer1";
-            this.panelDockContainer1.Size = new System.Drawing.Size(223, 534);
-            this.panelDockContainer1.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelDockContainer1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.panelDockContainer1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.panelDockContainer1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.panelDockContainer1.Style.GradientAngle = 90;
-            this.panelDockContainer1.TabIndex = 0;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.tileImagesContainer);
-            this.splitContainer1.Size = new System.Drawing.Size(223, 534);
-            this.splitContainer1.SplitterDistance = 150;
-            this.splitContainer1.TabIndex = 2;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.tileBrowse);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.tileSetList);
-            this.splitContainer2.Size = new System.Drawing.Size(223, 150);
-            this.splitContainer2.SplitterDistance = 35;
-            this.splitContainer2.TabIndex = 1;
-            // 
-            // tileBrowse
-            // 
-            this.tileBrowse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileBrowse.Location = new System.Drawing.Point(0, 0);
-            this.tileBrowse.Name = "tileBrowse";
-            this.tileBrowse.Size = new System.Drawing.Size(223, 35);
-            this.tileBrowse.TabIndex = 0;
-            this.tileBrowse.Text = "Browse...";
-            this.tileBrowse.UseVisualStyleBackColor = true;
-            this.tileBrowse.Click += new System.EventHandler(this.tileBrowse_Click);
-            // 
-            // tileSetList
-            // 
-            this.tileSetList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileSetList.FormattingEnabled = true;
-            this.tileSetList.Location = new System.Drawing.Point(0, 0);
-            this.tileSetList.Name = "tileSetList";
-            this.tileSetList.Size = new System.Drawing.Size(223, 111);
-            this.tileSetList.TabIndex = 0;
-            this.tileSetList.SelectedIndexChanged += new System.EventHandler(this.tileSetList_SelectedIndexChanged);
-            // 
-            // tileImagesContainer
-            // 
-            this.tileImagesContainer.AutoScroll = true;
-            this.tileImagesContainer.BackColor = System.Drawing.Color.White;
-            this.tileImagesContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tileImagesContainer.Location = new System.Drawing.Point(0, 0);
-            this.tileImagesContainer.Name = "tileImagesContainer";
-            this.tileImagesContainer.Size = new System.Drawing.Size(223, 380);
-            this.tileImagesContainer.TabIndex = 0;
             // 
             // panelDockContainer3
             // 
@@ -791,6 +705,87 @@
             this.miscItemsContainer.Name = "miscItemsContainer";
             this.miscItemsContainer.Size = new System.Drawing.Size(223, 534);
             this.miscItemsContainer.TabIndex = 1;
+            // 
+            // panelDockContainer1
+            // 
+            this.panelDockContainer1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelDockContainer1.Controls.Add(this.splitContainer1);
+            this.panelDockContainer1.Location = new System.Drawing.Point(3, 23);
+            this.panelDockContainer1.Name = "panelDockContainer1";
+            this.panelDockContainer1.Size = new System.Drawing.Size(223, 534);
+            this.panelDockContainer1.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelDockContainer1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.panelDockContainer1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.panelDockContainer1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.panelDockContainer1.Style.GradientAngle = 90;
+            this.panelDockContainer1.TabIndex = 0;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.tileImagesContainer);
+            this.splitContainer1.Size = new System.Drawing.Size(223, 534);
+            this.splitContainer1.SplitterDistance = 150;
+            this.splitContainer1.TabIndex = 2;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.tileBrowse);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.tileSetList);
+            this.splitContainer2.Size = new System.Drawing.Size(223, 150);
+            this.splitContainer2.SplitterDistance = 35;
+            this.splitContainer2.TabIndex = 1;
+            // 
+            // tileBrowse
+            // 
+            this.tileBrowse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileBrowse.Location = new System.Drawing.Point(0, 0);
+            this.tileBrowse.Name = "tileBrowse";
+            this.tileBrowse.Size = new System.Drawing.Size(223, 35);
+            this.tileBrowse.TabIndex = 0;
+            this.tileBrowse.Text = "Browse...";
+            this.tileBrowse.UseVisualStyleBackColor = true;
+            this.tileBrowse.Click += new System.EventHandler(this.tileBrowse_Click);
+            // 
+            // tileSetList
+            // 
+            this.tileSetList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileSetList.FormattingEnabled = true;
+            this.tileSetList.Location = new System.Drawing.Point(0, 0);
+            this.tileSetList.Name = "tileSetList";
+            this.tileSetList.Size = new System.Drawing.Size(223, 111);
+            this.tileSetList.TabIndex = 0;
+            this.tileSetList.SelectedIndexChanged += new System.EventHandler(this.tileSetList_SelectedIndexChanged);
+            // 
+            // tileImagesContainer
+            // 
+            this.tileImagesContainer.AutoScroll = true;
+            this.tileImagesContainer.BackColor = System.Drawing.Color.White;
+            this.tileImagesContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileImagesContainer.Location = new System.Drawing.Point(0, 0);
+            this.tileImagesContainer.Name = "tileImagesContainer";
+            this.tileImagesContainer.Size = new System.Drawing.Size(223, 380);
+            this.tileImagesContainer.TabIndex = 0;
             // 
             // tileDockBox
             // 
@@ -1468,8 +1463,7 @@
             this.itemContainer2.ItemSpacing = 0;
             this.itemContainer2.Name = "itemContainer2";
             this.itemContainer2.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.itemContainer3,
-            this.galleryContainer1});
+            this.itemContainer3});
             // 
             // itemContainer3
             // 
@@ -1485,7 +1479,8 @@
             this.openButton,
             this.saveButton,
             this.repackButton,
-            this.infoButton});
+            this.infoButton,
+            this.btnHelp});
             // 
             // openButton
             // 
@@ -1520,57 +1515,13 @@
             this.infoButton.Text = "&About";
             this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
             // 
-            // galleryContainer1
+            // btnHelp
             // 
-            // 
-            // 
-            // 
-            this.galleryContainer1.BackgroundStyle.Class = "RibbonFileMenuColumnTwoContainer";
-            this.galleryContainer1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.galleryContainer1.EnableGalleryPopup = false;
-            this.galleryContainer1.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-            this.galleryContainer1.MinimumSize = new System.Drawing.Size(180, 240);
-            this.galleryContainer1.MultiLine = false;
-            this.galleryContainer1.Name = "galleryContainer1";
-            this.galleryContainer1.PopupUsesStandardScrollbars = false;
-            this.galleryContainer1.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.labelItem8,
-            this.buttonItem8,
-            this.buttonItem9,
-            this.buttonItem10,
-            this.buttonItem11});
-            // 
-            // labelItem8
-            // 
-            this.labelItem8.BorderSide = DevComponents.DotNetBar.eBorderSide.Bottom;
-            this.labelItem8.BorderType = DevComponents.DotNetBar.eBorderType.Etched;
-            this.labelItem8.CanCustomize = false;
-            this.labelItem8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelItem8.Name = "labelItem8";
-            this.labelItem8.PaddingBottom = 2;
-            this.labelItem8.PaddingTop = 2;
-            this.labelItem8.Stretch = true;
-            this.labelItem8.Text = "Recent Documents";
-            // 
-            // buttonItem8
-            // 
-            this.buttonItem8.Name = "buttonItem8";
-            this.buttonItem8.Text = "&1. Short News 5-7.rtf";
-            // 
-            // buttonItem9
-            // 
-            this.buttonItem9.Name = "buttonItem9";
-            this.buttonItem9.Text = "&2. Prospect Email.rtf";
-            // 
-            // buttonItem10
-            // 
-            this.buttonItem10.Name = "buttonItem10";
-            this.buttonItem10.Text = "&3. Customer Email.rtf";
-            // 
-            // buttonItem11
-            // 
-            this.buttonItem11.Name = "buttonItem11";
-            this.buttonItem11.Text = "&4. example.rtf";
+            this.btnHelp.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnHelp.Image = global::HaCreator.Properties.Resources.help_icon;
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Text = "&Help";
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // itemContainer4
             // 
@@ -1718,15 +1669,6 @@
             this.splitContainer5.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
-            this.panelDockContainer1.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
             this.panelDockContainer3.ResumeLayout(false);
             this.splitContainer6.Panel1.ResumeLayout(false);
             this.splitContainer6.Panel2.ResumeLayout(false);
@@ -1750,6 +1692,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.lifePictureBox)).EndInit();
             this.panelDockContainer5.ResumeLayout(false);
             this.panelDockContainer6.ResumeLayout(false);
+            this.panelDockContainer1.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.ribbonControl.ResumeLayout(false);
             this.ribbonControl.PerformLayout();
             this.ribbonPanel1.ResumeLayout(false);
@@ -1783,12 +1734,6 @@
         private DevComponents.DotNetBar.ItemContainer itemContainer3;
         private DevComponents.DotNetBar.ButtonItem openButton;
         private DevComponents.DotNetBar.ButtonItem saveButton;
-        private DevComponents.DotNetBar.GalleryContainer galleryContainer1;
-        private DevComponents.DotNetBar.LabelItem labelItem8;
-        private DevComponents.DotNetBar.ButtonItem buttonItem8;
-        private DevComponents.DotNetBar.ButtonItem buttonItem9;
-        private DevComponents.DotNetBar.ButtonItem buttonItem10;
-        private DevComponents.DotNetBar.ButtonItem buttonItem11;
         private DevComponents.DotNetBar.ItemContainer itemContainer4;
         private DevComponents.DotNetBar.ButtonItem settingsMenuButton;
         private DevComponents.DotNetBar.ButtonItem exitButton;
@@ -1883,5 +1828,6 @@
         private System.Windows.Forms.ListBox lifeListBox;
         private System.Windows.Forms.PictureBox lifePictureBox;
         private KoolkLVContainer portalImageContainer;
+        private DevComponents.DotNetBar.ButtonItem btnHelp;
     }
 }

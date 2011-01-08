@@ -63,12 +63,7 @@ namespace HaCreator
         [STAThread]
         static void Main()
         {
-//            Application.EnableVisualStyles();
-//            Application.SetCompatibleTextRenderingDefault(false);
-//            Application.Run(new GUI.Form2());
-//            return;
             SelfCheck();
-            //Composition.EnableComposition(false);
             InfoManager = new WzInformationManager();
             SettingsManager = new WzSettingsManager(System.IO.Path.Combine(Application.StartupPath, "HCSettings.wz"), typeof(UserSettings), typeof(ApplicationSettings), typeof(Microsoft.Xna.Framework.Color));
             SettingsManager.Load();
@@ -85,47 +80,9 @@ namespace HaCreator
                 Application.Run(new ExceptionHandler(e));
             }
 #else
-            //Application.Run(new Form1());
             Application.Run(new GUI.Initialization());
-            //Application.Run(new GUI.Editor());
-            //Application.Run(new GUI.UserSettingsForm());
 #endif
             SettingsManager.Save();
-        }
-    }
-
-    public static class Composition
-    {
-        const uint DWM_EC_DISABLECOMPOSITION = 0;
-        const uint DWM_EC_ENABLECOMPOSITION = 1;
-
-        [DllImport("dwmapi.dll", EntryPoint = "DwmEnableComposition")]
-        extern static uint DwmEnableComposition(uint compositionAction);
-
-        /// <summary>
-        /// Enable/Disable DWM composition (aka Aero)
-        /// </summary>
-        /// <param name="enable">True to enable composition, false to disable composition.</param>
-        /// <returns>True if the operation was successful.</returns>
-        public static bool EnableComposition(bool enable)
-        {
-            try
-            {
-                if (enable)
-                {
-                    DwmEnableComposition(DWM_EC_ENABLECOMPOSITION);
-                }
-                else
-                {
-                    DwmEnableComposition(DWM_EC_DISABLECOMPOSITION);
-                }
-
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }
