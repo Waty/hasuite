@@ -97,9 +97,9 @@ namespace HaRepacker.GUI
             try
             {
                 if (detectMapleVersion)
-                    Program.WzMan.OpenAWzFile(path, panel);
+                    Program.WzMan.LoadWzFile(path, panel);
                 else
-                    Program.WzMan.OpenAWzFile(path, (WzMapleVersion)encryptionBox.SelectedIndex, MainPanel);
+                    Program.WzMan.LoadWzFile(path, (WzMapleVersion)encryptionBox.SelectedIndex, MainPanel);
             }
             catch
             {
@@ -545,7 +545,12 @@ namespace HaRepacker.GUI
             OpenFileDialog dialog = new OpenFileDialog() { Title = "Select the WZ File", Filter = "WZ File(*.wz)|*.wz", Multiselect = true };
             if (dialog.ShowDialog() != DialogResult.OK) return;
             foreach (string name in dialog.FileNames)
-                Program.WzMan.OpenAWzFile(name, (WzMapleVersion)encryptionBox.SelectedIndex, MainPanel);
+            {
+                if (WzTool.IsListFile(name))
+                    new ListEditor(name, (WzMapleVersion)encryptionBox.SelectedIndex).Show();
+                else
+                    Program.WzMan.LoadWzFile(name, (WzMapleVersion)encryptionBox.SelectedIndex, MainPanel);
+            }
         }
 
         private void unloadAllToolStripMenuItem_Click(object sender, EventArgs e)
@@ -649,6 +654,11 @@ namespace HaRepacker.GUI
             UpdateProgressBar(MainPanel.mainProgressBar, wzFilesToDump.Length, true, true);
             foreach (string wzpath in wzFilesToDump)
             {
+                if (WzTool.IsListFile(wzpath))
+                {
+                    Warning.Error("The file at " + wzpath + " is a List.wz file and will be skipped.");
+                    continue;
+                }
                 WzFile f = new WzFile(wzpath, version);
                 f.ParseWzFile();
                 serializer.SerializeFile(f, Path.Combine(baseDir, f.Name));
@@ -1049,7 +1059,7 @@ namespace HaRepacker.GUI
             }
             else if (!SoundInputBox.Show("Add sound", out name, out path))
                 return;
-            ((WzNode)MainPanel.DataTree.SelectedNode).AddObject(WzSoundProperty.CreateCustomProperty(name, path), MainPanel.UndoRedoMan);
+            ((WzNode)MainPanel.DataTree.SelectedNode).AddObject(new WzSoundProperty(name, path), MainPanel.UndoRedoMan);
         }
 
         private void wzStringPropertyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1119,19 +1129,6 @@ namespace HaRepacker.GUI
             else if (!VectorInputBox.Show("Add vector", out name, out pt))
                 return;
             ((WzNode)MainPanel.DataTree.SelectedNode).AddObject(new WzVectorProperty(name, new WzCompressedIntProperty("X",((Point)pt).X),new WzCompressedIntProperty("Y",((Point)pt).Y)), MainPanel.UndoRedoMan);
-        }
-
-        private void wzListEntryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string name;
-            if (!(MainPanel.DataTree.SelectedNode.Tag is WzListFile))
-            {
-                Warning.Error("Cannot insert selected object into this type of wz node.");
-                return;
-            }
-            else if (!NameInputBox.Show("Add list entry", out name))
-                return;
-            ((WzNode)MainPanel.DataTree.SelectedNode).AddObject(new WzListEntry(name), MainPanel.UndoRedoMan);
         }
 
         private void expandAllToolStripMenuItem_Click(object sender, EventArgs e)

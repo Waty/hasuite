@@ -37,6 +37,7 @@ namespace HaRepacker.GUI
         {
             copyrightBox.Enabled = regBox.Checked;
             versionBox.Enabled = regBox.Checked;
+            nameBox.Enabled = regBox.Checked;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -57,10 +58,7 @@ namespace HaRepacker.GUI
                 panel.DataTree.Nodes.Add(new WzNode(file));
             }
             else
-            {
-                WzListFile list = new WzListFile((WzMapleVersion)encryptionBox.SelectedIndex, nameBox.Text + ".wz");
-                panel.DataTree.Nodes.Add(new WzNode(list));
-            }
+                new ListEditor(null, (WzMapleVersion)encryptionBox.SelectedIndex).Show();
             Close();
         }
     }

@@ -35,7 +35,7 @@ namespace HaRepackerLib
         {
         }
 
-        private bool LoadWzFile(string path, WzMapleVersion encVersion, short version, out WzFile file)
+        private bool OpenWzFile(string path, WzMapleVersion encVersion, short version, out WzFile file)
         {
             try
             {
@@ -47,25 +47,7 @@ namespace HaRepackerLib
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error initializing " + Path.GetFileName(path) + " (" + e.Message + ").\r\nCheck that the directory is valid and the file is not in use.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                file = null;
-                return false;
-            }
-        }
-
-        private bool LoadListFile(string path, WzMapleVersion version, out WzListFile file)
-        {
-            try
-            {
-                WzListFile f = new WzListFile(path, version);
-                wzFiles.Add(f);
-                f.ParseWzFile();
-                file = f;
-                return true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error initializing " + Path.GetFileName(path) + " (" + e.Message + ").\r\nCheck that the directory is valid and the file is not in use.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Warning.Error("Error initializing " + Path.GetFileName(path) + " (" + e.Message + ").\r\nCheck that the directory is valid and the file is not in use.");
                 file = null;
                 return false;
             }
@@ -81,42 +63,31 @@ namespace HaRepackerLib
         {
             WzMapleVersion encVersion = file.MapleVersion;
             string path = file.FilePath;
-            bool list = file is WzListFile;
-            short version = list ? (short)1 : ((WzFile)file).Version;
+            short version = ((WzFile)file).Version;
             ((WzNode)file.HRTag).Delete();
             wzFiles.Remove(file);
-            OpenAWzFile(path, encVersion, (short)-1, list, panel);
+            LoadWzFile(path, encVersion, (short)-1, panel);
         }
 
-        public void OpenAWzFile(string path, HaRepackerMainPanel panel)
+        public void LoadWzFile(string path, HaRepackerMainPanel panel)
         {
             short fileVersion = -1;
             bool isList = WzTool.IsListFile(path);
-            OpenAWzFile(path, isList ? WzMapleVersion.GMS : WzTool.DetectMapleVersion(path, out fileVersion), fileVersion, isList, panel);
+            LoadWzFile(path, WzTool.DetectMapleVersion(path, out fileVersion), fileVersion, panel);
         }
 
-        public void OpenAWzFile(string path, WzMapleVersion encVersion, HaRepackerMainPanel panel)
+        public void LoadWzFile(string path, WzMapleVersion encVersion, HaRepackerMainPanel panel)
         {
-            OpenAWzFile(path, encVersion, (short)-1, WzTool.IsListFile(path), panel);
+            LoadWzFile(path, encVersion, (short)-1, panel);
         }
 
-        private void OpenAWzFile(string path, WzMapleVersion encVersion, short version, bool list, HaRepackerMainPanel panel)
+        private void LoadWzFile(string path, WzMapleVersion encVersion, short version, HaRepackerMainPanel panel)
         {
-            if (list)
-            {
-                WzListFile newFile;
-                if (!LoadListFile(path, encVersion, out newFile)) return;
-                panel.DataTree.Nodes.Add(new WzNode(newFile));
-            }
-            else
-            {
-                WzFile newFile;
-                if (!LoadWzFile(path,encVersion, version, out newFile)) return;
-                WzNode node = new WzNode(newFile);
-                panel.DataTree.Nodes.Add(node);
-                SortNodesRecursively(node);
-            }
-            //if (UserSettings.Default.Sort) panel.DataTree.Nodes.Sort();
+            WzFile newFile;
+            if (!OpenWzFile(path, encVersion, version, out newFile)) return;
+            WzNode node = new WzNode(newFile);
+            panel.DataTree.Nodes.Add(node);
+            SortNodesRecursively(node);
         }
 
         public void InsertWzFileUnsafe(IWzFile f, HaRepackerMainPanel panel)
