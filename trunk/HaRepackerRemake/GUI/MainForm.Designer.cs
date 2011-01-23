@@ -47,26 +47,12 @@ namespace HaRepacker.GUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.expandAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.collapseAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fHMappingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zoomTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.encryptionBox = new System.Windows.Forms.ToolStripComboBox();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.test1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AbortButton = new System.Windows.Forms.Button();
-            this.MainPanel = new HaRepackerLib.HaRepackerMainPanel();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unloadAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reloadAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wzDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wzImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,9 +69,12 @@ namespace HaRepacker.GUI
             this.wzUnsignedShortPropertyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wzUolPropertyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wzVectorPropertyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.wzListEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.expandAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.collapseAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportFilesToXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rawDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -102,11 +91,20 @@ namespace HaRepacker.GUI
             this.iMGToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fHMappingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renderMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zoomTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.animateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encryptionBox = new System.Windows.Forms.ToolStripComboBox();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.test1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AbortButton = new System.Windows.Forms.Button();
+            this.MainPanel = new HaRepackerLib.HaRepackerMainPanel();
             this.mainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,6 +136,46 @@ namespace HaRepacker.GUI
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 21);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.page_white;
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Text = "New...";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.folder;
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Text = "Open...";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.disk;
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save...";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // unloadAllToolStripMenuItem
+            // 
+            this.unloadAllToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.delete;
+            this.unloadAllToolStripMenuItem.Name = "unloadAllToolStripMenuItem";
+            this.unloadAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unloadAllToolStripMenuItem.Text = "Unload All";
+            this.unloadAllToolStripMenuItem.Click += new System.EventHandler(this.unloadAllToolStripMenuItem_Click);
+            // 
+            // reloadAllToolStripMenuItem
+            // 
+            this.reloadAllToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.arrow_refresh;
+            this.reloadAllToolStripMenuItem.Name = "reloadAllToolStripMenuItem";
+            this.reloadAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reloadAllToolStripMenuItem.Text = "Reload All";
+            this.reloadAllToolStripMenuItem.Click += new System.EventHandler(this.reloadAllToolStripMenuItem_Click);
+            // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -150,167 +188,6 @@ namespace HaRepacker.GUI
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // undoToolStripMenuItem
-            // 
-            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.undoToolStripMenuItem.Text = "Undo";
-            this.undoToolStripMenuItem.Visible = false;
-            // 
-            // redoToolStripMenuItem
-            // 
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.redoToolStripMenuItem.Text = "Redo";
-            this.redoToolStripMenuItem.Visible = false;
-            // 
-            // expandAllToolStripMenuItem
-            // 
-            this.expandAllToolStripMenuItem.Name = "expandAllToolStripMenuItem";
-            this.expandAllToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.expandAllToolStripMenuItem.Text = "Expand All";
-            this.expandAllToolStripMenuItem.Click += new System.EventHandler(this.expandAllToolStripMenuItem_Click);
-            // 
-            // collapseAllToolStripMenuItem
-            // 
-            this.collapseAllToolStripMenuItem.Name = "collapseAllToolStripMenuItem";
-            this.collapseAllToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.collapseAllToolStripMenuItem.Text = "Collapse All";
-            this.collapseAllToolStripMenuItem.Click += new System.EventHandler(this.collapseAllToolStripMenuItem_Click);
-            // 
-            // toolsToolStripMenuItem
-            // 
-            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportFilesToXMLToolStripMenuItem,
-            this.exportDataToolStripMenuItem,
-            this.importToolStripMenuItem,
-            this.optionsToolStripMenuItem,
-            this.searchToolStripMenuItem});
-            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 21);
-            this.toolsToolStripMenuItem.Text = "Tools";
-            // 
-            // extrasToolStripMenuItem
-            // 
-            this.extrasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fHMappingToolStripMenuItem,
-            this.animateToolStripMenuItem});
-            this.extrasToolStripMenuItem.Name = "extrasToolStripMenuItem";
-            this.extrasToolStripMenuItem.Size = new System.Drawing.Size(49, 21);
-            this.extrasToolStripMenuItem.Text = "Extras";
-            // 
-            // fHMappingToolStripMenuItem
-            // 
-            this.fHMappingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.renderMapToolStripMenuItem,
-            this.settingsToolStripMenuItem,
-            this.zoomTextBox});
-            this.fHMappingToolStripMenuItem.Name = "fHMappingToolStripMenuItem";
-            this.fHMappingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.fHMappingToolStripMenuItem.Text = "FH Mapping";
-            // 
-            // zoomTextBox
-            // 
-            this.zoomTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.zoomTextBox.Name = "zoomTextBox";
-            this.zoomTextBox.Size = new System.Drawing.Size(100, 21);
-            this.zoomTextBox.Text = "1";
-            // 
-            // encryptionBox
-            // 
-            this.encryptionBox.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.encryptionBox.Items.AddRange(new object[] {
-            "GMS(T) (v56+)",
-            "EMS\\KMS(T)\\MSEA (v91-)",
-            "BMS\\GMS (v55-)\\MSEA (v92+)"});
-            this.encryptionBox.Name = "encryptionBox";
-            this.encryptionBox.Size = new System.Drawing.Size(155, 21);
-            this.encryptionBox.SelectedIndexChanged += new System.EventHandler(this.encryptionBox_SelectedIndexChanged);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewHelpToolStripMenuItem,
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // debugToolStripMenuItem
-            // 
-            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.test1ToolStripMenuItem});
-            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
-            this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 21);
-            this.debugToolStripMenuItem.Text = "Debug";
-            this.debugToolStripMenuItem.Visible = false;
-            // 
-            // test1ToolStripMenuItem
-            // 
-            this.test1ToolStripMenuItem.Name = "test1ToolStripMenuItem";
-            this.test1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.test1ToolStripMenuItem.Text = "Test1";
-            // 
-            // AbortButton
-            // 
-            this.AbortButton.Location = new System.Drawing.Point(274, 61);
-            this.AbortButton.Name = "AbortButton";
-            this.AbortButton.Size = new System.Drawing.Size(113, 75);
-            this.AbortButton.TabIndex = 2;
-            this.AbortButton.Text = "Abort";
-            this.AbortButton.UseVisualStyleBackColor = true;
-            this.AbortButton.Visible = false;
-            this.AbortButton.Click += new System.EventHandler(this.AbortButton_Click);
-            // 
-            // MainPanel
-            // 
-            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(0, 25);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(683, 344);
-            this.MainPanel.Sort = true;
-            this.MainPanel.TabIndex = 0;
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.page_white;
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.newToolStripMenuItem.Text = "New...";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.folder;
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.openToolStripMenuItem.Text = "Open...";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.disk;
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.saveToolStripMenuItem.Text = "Save...";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
-            // unloadAllToolStripMenuItem
-            // 
-            this.unloadAllToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.delete;
-            this.unloadAllToolStripMenuItem.Name = "unloadAllToolStripMenuItem";
-            this.unloadAllToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.unloadAllToolStripMenuItem.Text = "Unload All";
-            this.unloadAllToolStripMenuItem.Click += new System.EventHandler(this.unloadAllToolStripMenuItem_Click);
-            // 
-            // reloadAllToolStripMenuItem
-            // 
-            this.reloadAllToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.arrow_refresh;
-            this.reloadAllToolStripMenuItem.Name = "reloadAllToolStripMenuItem";
-            this.reloadAllToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.reloadAllToolStripMenuItem.Text = "Reload All";
-            this.reloadAllToolStripMenuItem.Click += new System.EventHandler(this.reloadAllToolStripMenuItem_Click);
             // 
             // addToolStripMenuItem
             // 
@@ -329,12 +206,10 @@ namespace HaRepacker.GUI
             this.wzSubPropertyToolStripMenuItem,
             this.wzUnsignedShortPropertyToolStripMenuItem,
             this.wzUolPropertyToolStripMenuItem,
-            this.wzVectorPropertyToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.wzListEntryToolStripMenuItem});
+            this.wzVectorPropertyToolStripMenuItem});
             this.addToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.add;
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addToolStripMenuItem.Text = "Add";
             // 
             // wzDirectoryToolStripMenuItem
@@ -440,25 +315,53 @@ namespace HaRepacker.GUI
             this.wzVectorPropertyToolStripMenuItem.Text = "WzVectorProperty";
             this.wzVectorPropertyToolStripMenuItem.Click += new System.EventHandler(this.wzVectorPropertyToolStripMenuItem_Click);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(212, 6);
-            // 
-            // wzListEntryToolStripMenuItem
-            // 
-            this.wzListEntryToolStripMenuItem.Name = "wzListEntryToolStripMenuItem";
-            this.wzListEntryToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.wzListEntryToolStripMenuItem.Text = "WzListEntry";
-            this.wzListEntryToolStripMenuItem.Click += new System.EventHandler(this.wzListEntryToolStripMenuItem_Click);
-            // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.delete;
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
+            // 
+            // undoToolStripMenuItem
+            // 
+            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.undoToolStripMenuItem.Text = "Undo";
+            this.undoToolStripMenuItem.Visible = false;
+            // 
+            // redoToolStripMenuItem
+            // 
+            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.redoToolStripMenuItem.Text = "Redo";
+            this.redoToolStripMenuItem.Visible = false;
+            // 
+            // expandAllToolStripMenuItem
+            // 
+            this.expandAllToolStripMenuItem.Name = "expandAllToolStripMenuItem";
+            this.expandAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.expandAllToolStripMenuItem.Text = "Expand All";
+            this.expandAllToolStripMenuItem.Click += new System.EventHandler(this.expandAllToolStripMenuItem_Click);
+            // 
+            // collapseAllToolStripMenuItem
+            // 
+            this.collapseAllToolStripMenuItem.Name = "collapseAllToolStripMenuItem";
+            this.collapseAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.collapseAllToolStripMenuItem.Text = "Collapse All";
+            this.collapseAllToolStripMenuItem.Click += new System.EventHandler(this.collapseAllToolStripMenuItem_Click);
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportFilesToXMLToolStripMenuItem,
+            this.exportDataToolStripMenuItem,
+            this.importToolStripMenuItem,
+            this.optionsToolStripMenuItem,
+            this.searchToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 21);
+            this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // exportFilesToXMLToolStripMenuItem
             // 
@@ -588,6 +491,25 @@ namespace HaRepacker.GUI
             this.searchToolStripMenuItem.Text = "Search";
             this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
+            // extrasToolStripMenuItem
+            // 
+            this.extrasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fHMappingToolStripMenuItem,
+            this.animateToolStripMenuItem});
+            this.extrasToolStripMenuItem.Name = "extrasToolStripMenuItem";
+            this.extrasToolStripMenuItem.Size = new System.Drawing.Size(49, 21);
+            this.extrasToolStripMenuItem.Text = "Extras";
+            // 
+            // fHMappingToolStripMenuItem
+            // 
+            this.fHMappingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.renderMapToolStripMenuItem,
+            this.settingsToolStripMenuItem,
+            this.zoomTextBox});
+            this.fHMappingToolStripMenuItem.Name = "fHMappingToolStripMenuItem";
+            this.fHMappingToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.fHMappingToolStripMenuItem.Text = "FH Mapping";
+            // 
             // renderMapToolStripMenuItem
             // 
             this.renderMapToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.map;
@@ -604,13 +526,40 @@ namespace HaRepacker.GUI
             this.settingsToolStripMenuItem.Text = "Settings...";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
+            // zoomTextBox
+            // 
+            this.zoomTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.zoomTextBox.Name = "zoomTextBox";
+            this.zoomTextBox.Size = new System.Drawing.Size(100, 21);
+            this.zoomTextBox.Text = "1";
+            // 
             // animateToolStripMenuItem
             // 
             this.animateToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.lightning;
             this.animateToolStripMenuItem.Name = "animateToolStripMenuItem";
-            this.animateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.animateToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.animateToolStripMenuItem.Text = "Animate";
             this.animateToolStripMenuItem.Click += new System.EventHandler(this.aPNGToolStripMenuItem_Click);
+            // 
+            // encryptionBox
+            // 
+            this.encryptionBox.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.encryptionBox.Items.AddRange(new object[] {
+            "GMS(T) (v56+)",
+            "EMS\\KMS(T)\\MSEA (v91-)",
+            "BMS\\GMS (v55-)\\MSEA (v92+)"});
+            this.encryptionBox.Name = "encryptionBox";
+            this.encryptionBox.Size = new System.Drawing.Size(155, 21);
+            this.encryptionBox.SelectedIndexChanged += new System.EventHandler(this.encryptionBox_SelectedIndexChanged);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewHelpToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.helpToolStripMenuItem.Text = "Help";
             // 
             // viewHelpToolStripMenuItem
             // 
@@ -627,6 +576,41 @@ namespace HaRepacker.GUI
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.aboutToolStripMenuItem.Text = "About HaRepacker";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // debugToolStripMenuItem
+            // 
+            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.test1ToolStripMenuItem});
+            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
+            this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 21);
+            this.debugToolStripMenuItem.Text = "Debug";
+            this.debugToolStripMenuItem.Visible = false;
+            // 
+            // test1ToolStripMenuItem
+            // 
+            this.test1ToolStripMenuItem.Name = "test1ToolStripMenuItem";
+            this.test1ToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.test1ToolStripMenuItem.Text = "Test1";
+            // 
+            // AbortButton
+            // 
+            this.AbortButton.Location = new System.Drawing.Point(274, 61);
+            this.AbortButton.Name = "AbortButton";
+            this.AbortButton.Size = new System.Drawing.Size(113, 75);
+            this.AbortButton.TabIndex = 2;
+            this.AbortButton.Text = "Abort";
+            this.AbortButton.UseVisualStyleBackColor = true;
+            this.AbortButton.Visible = false;
+            this.AbortButton.Click += new System.EventHandler(this.AbortButton_Click);
+            // 
+            // MainPanel
+            // 
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(0, 25);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(683, 344);
+            this.MainPanel.Sort = true;
+            this.MainPanel.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -690,8 +674,6 @@ namespace HaRepacker.GUI
         private System.Windows.Forms.ToolStripMenuItem wzUnsignedShortPropertyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wzUolPropertyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wzVectorPropertyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem wzListEntryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem iMGToolStripMenuItem2;

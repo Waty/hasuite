@@ -70,7 +70,7 @@ namespace HaRepacker.GUI
                 wzNode.Delete();
                 newWzLoc = dialog.FileName;
             }
-            Program.WzMan.OpenAWzFile(newWzLoc, (WzMapleVersion)encryptionBox.SelectedIndex, panel);
+            Program.WzMan.LoadWzFile(newWzLoc, (WzMapleVersion)encryptionBox.SelectedIndex, panel);
             Close();
         }
 

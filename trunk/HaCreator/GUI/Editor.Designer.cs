@@ -1743,7 +1743,6 @@
         private System.Windows.Forms.ToolStripLabel cordsLabel;
         private System.Windows.Forms.ToolStripLabel itemDescLabel;
         private DevComponents.DotNetBar.RibbonTabItem viewTab;
-        private DevComponents.DotNetBar.RibbonTabItem Tools;
         private DevComponents.DotNetBar.ButtonItem undoButton;
         private DevComponents.DotNetBar.ButtonItem redoButton;
         private DevComponents.DotNetBar.RibbonPanel ribbonPanel2;

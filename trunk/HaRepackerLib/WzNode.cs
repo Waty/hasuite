@@ -56,9 +56,6 @@ namespace HaRepackerLib
                 foreach (IWzImageProperty prop in ((IPropertyContainer)SourceObject).WzProperties)
                     Nodes.Add(new WzNode(prop));
             }
-            else if (SourceObject is WzListFile)
-                foreach (WzListEntry entry in ((WzListFile)SourceObject).WzListEntries)
-                    Nodes.Add(new WzNode(entry));
         }
 
         public void Delete()
@@ -93,7 +90,6 @@ namespace HaRepackerLib
             if (obj is IPropertyContainer) return ((IPropertyContainer)obj)[name] == null;
             else if (obj is WzDirectory) return ((WzDirectory)obj)[name] == null;
             else if (obj is WzFile) return ((WzFile)obj).WzDirectory[name] == null;
-            else if (obj is WzListFile) return ((WzListFile)obj)[name] == null;
             else return false;
         }
 
@@ -121,11 +117,6 @@ namespace HaRepackerLib
                 if (obj is IWzImageProperty)
                     ((IPropertyContainer)TaggedObject).AddProperty((IWzImageProperty)obj);
                 else return;
-            }
-            else if (TaggedObject is WzListFile)
-            {
-                if (obj is WzListEntry)
-                    ((WzListFile)TaggedObject).WzListEntries.Add((WzListEntry)obj);
             }
             else return;
         }
@@ -235,31 +226,5 @@ namespace HaRepackerLib
                 return parent;
             }
         }
-
-
-        /*private ToolStripMenuItem DeleteItem;
-        private ToolStripMenuItem Export;
-        private ToolStripMenuItem AddDir;
-        private ToolStripMenuItem AddImg;
-        private ToolStripMenuItem AddByteFloat;
-        private ToolStripMenuItem AddCanvas;
-        private ToolStripMenuItem AddInt;
-        private ToolStripMenuItem AddConvex;
-        private ToolStripMenuItem AddDouble;
-        private ToolStripMenuItem AddList;
-        private ToolStripMenuItem AddNull;
-        private ToolStripMenuItem AddSound;
-        private ToolStripMenuItem AddString;
-        private ToolStripMenuItem AddSub;
-        private ToolStripMenuItem AddUshort;
-        private ToolStripMenuItem AddUOL;
-        private ToolStripMenuItem AddVector;
-
-        public static ToolStripMenuItem CreateMenuItem(string text, EventHandler onClick)
-        {
-            ToolStripMenuItem result = new ToolStripMenuItem(text);
-            result.Click += onClick;
-            return result;
-        }*/
     }
 }

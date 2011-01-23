@@ -74,11 +74,13 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="Microsoft.DirectX.AudioVideoPlayback, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GUI\AboutForm.cs">
@@ -168,6 +170,12 @@
     <Compile Include="GUI\Interaction\VectorInputBox.Designer.cs">
       <DependentUpon>VectorInputBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ListEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ListEditor.Designer.cs">
+      <DependentUpon>ListEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +252,9 @@
     <EmbeddedResource Include="GUI\Interaction\VectorInputBox.resx">
       <DependentUpon>VectorInputBox.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ListEditor.resx">
+      <DependentUpon>ListEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

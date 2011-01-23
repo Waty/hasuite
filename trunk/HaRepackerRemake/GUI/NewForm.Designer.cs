@@ -192,6 +192,7 @@ namespace HaRepacker.GUI
             // 
             // 
             this.versionBox.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.versionBox.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.versionBox.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.versionBox.Location = new System.Drawing.Point(75, 114);
             this.versionBox.MaxValue = 65535;
@@ -222,7 +223,7 @@ namespace HaRepacker.GUI
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nameBox);
             this.Name = "NewForm";
-            this.Text = "NewForm";
+            this.Text = "New...";
             ((System.ComponentModel.ISupportInitialize)(this.versionBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

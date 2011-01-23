@@ -63,12 +63,6 @@ namespace HaRepackerLib
             saveImageButton.Location = new Point(changeImageButton.Location.X + changeImageButton.Width + changeImageButton.Margin.Right, changeImageButton.Location.Y);
             changeSoundButton.Location = changeImageButton.Location;
             saveSoundButton.Location = saveImageButton.Location;
-/*            int scrollMaxHeight = canvasPropBox.Height - pictureBoxPanel.Height;
-            int scrollMaxWidth = canvasPropBox.Width - pictureBoxPanel.Width;
-            int scrollHeight = scrollMaxHeight <= 0 ? 0 : Math.Min(scrollMaxHeight, -autoScrollPos.Y);
-            int scrollWidth = scrollMaxWidth <= 0 ? 0 : Math.Min(scrollMaxWidth, -autoScrollPos.X);
-            Application.DoEvents();
-            pictureBoxPanel.AutoScrollPosition = new Point(-scrollWidth, -scrollHeight);*/
         }
 
         private void MainSplitContainer_SplitterMoved(object sender, SplitterEventArgs e)
@@ -93,7 +87,7 @@ namespace HaRepackerLib
             mp3Player.SoundProperty = null;
             nameBox.Text = obj is WzFile ? ((WzFile)obj).Header.Copyright : obj.Name;
             nameBox.ButtonEnabled = false;
-            if (obj is WzFile || obj is WzDirectory || obj is WzImage || obj is WzNullProperty || obj is WzSubProperty || obj is WzConvexProperty || obj is WzListEntry)
+            if (obj is WzFile || obj is WzDirectory || obj is WzImage || obj is WzNullProperty || obj is WzSubProperty || obj is WzConvexProperty)
             {
                 nameBox.Visible = true;
                 canvasPropBox.Visible = false;
@@ -163,20 +157,6 @@ namespace HaRepackerLib
                 vectorPanel.X = ((WzVectorProperty)obj).X.Value;
                 vectorPanel.Y = ((WzVectorProperty)obj).Y.Value;
                 applyChangesButton.Visible = true;
-                changeImageButton.Visible = false;
-                saveImageButton.Visible = false;
-                changeSoundButton.Visible = false;
-                saveSoundButton.Visible = false;
-            }
-            else if (obj is WzListFile)
-            {
-                nameBox.Visible = false;
-                canvasPropBox.Visible = false;
-                pictureBoxPanel.Visible = false;
-                textPropBox.Visible = false;
-                mp3Player.Visible = false;
-                vectorPanel.Visible = false;
-                applyChangesButton.Visible = false;
                 changeImageButton.Visible = false;
                 saveImageButton.Visible = false;
                 changeSoundButton.Visible = false;
@@ -372,7 +352,7 @@ namespace HaRepackerLib
                 WzSoundProperty prop;
                 try
                 {
-                    prop = WzSoundProperty.CreateCustomProperty(((WzSoundProperty)DataTree.SelectedNode.Tag).Name,dialog.FileName);
+                    prop = new WzSoundProperty(((WzSoundProperty)DataTree.SelectedNode.Tag).Name, dialog.FileName);
                 }
                 catch
                 {
@@ -700,15 +680,8 @@ namespace HaRepackerLib
             {
                 if (node.Tag is IPropertyContainer)
                     SearchWzProperties((IPropertyContainer)node.Tag);
-                else if (node.Tag is IWzImageProperty || node.Tag is WzListEntry) continue;
+                else if (node.Tag is IWzImageProperty) continue;
                 else SearchTV(node);
-                /*if (node.Tag is WzDirectory)
-                    SearchTV((WzDirectory)node.Tag, 0, findBox.Text, UserSettings.ParseImagesInSearch);
-                else if (node.Tag is WzFile)
-                    SearchTV(((WzFile)node.Tag).WzDirectory, 0, findBox.Text, UserSettings.ParseImagesInSearch);
-                else if (node.Tag is IPropertyContainer)
-                    SearchWzProperties((IPropertyContainer)node.Tag, 0, findBox.Text);*/
-
                 if (finished) break;
             }
             if (!finished) { MessageBox.Show("Reached the end of the tree"); searchidx = 0; DataTree.SelectedNode.EnsureVisible(); }
@@ -734,16 +707,10 @@ namespace HaRepackerLib
             extractImages = UserSettings.ParseImagesInSearch;
             foreach (WzNode node in DataTree.SelectedNodes)
             {
-                if (node.Tag is IWzImageProperty || node.Tag is WzListEntry) continue;
+                if (node.Tag is IWzImageProperty) continue;
                 else if (node.Tag is IPropertyContainer)
                     SearchWzProperties((IPropertyContainer)node.Tag);
                 else SearchTV(node);
-                /*if (node.Tag is WzDirectory)
-                    SearchTV((WzDirectory)node.Tag, 0, findBox.Text, UserSettings.ParseImagesInSearch);
-                else if (node.Tag is WzFile)
-                    SearchTV(((WzFile)node.Tag).WzDirectory, 0, findBox.Text, UserSettings.ParseImagesInSearch);
-                else if (node.Tag is IPropertyContainer)
-                    SearchWzProperties((IPropertyContainer)node.Tag, 0, findBox.Text);*/
             }
             foreach (string result in searchResultsList)
                 searchResultsBox.Items.Add(result);
