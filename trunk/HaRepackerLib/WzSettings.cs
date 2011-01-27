@@ -53,6 +53,6 @@ namespace HaRepackerLib
         public static bool FirstRun = true;
         public static string LastBrowserPath = "";
         public static WzMapleVersion MapleVersion = WzMapleVersion.GMS;
-        public static int LastKnownVersion = 400;
+        public static int LastKnownVersion = 401;
     }
 }
