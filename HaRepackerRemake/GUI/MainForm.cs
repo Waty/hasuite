@@ -504,11 +504,14 @@ namespace HaRepacker.GUI
                     client.DownloadData(
                     "http://www.xnams.co.cc/forum/includes/scripts/hr/notice.txt"
                     ));
-                if (version <= ApplicationSettings.LastKnownVersion)
+                string url = Encoding.ASCII.GetString(
+                    client.DownloadData(
+                    "http://www.xnams.co.cc/forum/includes/scripts/hr/url.txt"
+                    ));
+                if (version <= Constants.Version)
                     return;
-                if (MessageBox.Show(notice, "New Version", MessageBoxButtons.YesNo)
-                    != DialogResult.Yes)
-                    ApplicationSettings.LastKnownVersion = version;
+                if (MessageBox.Show(notice.Replace("%URL%", url) + "\r\n\r\nClick \"Yes\" to download the new version.", "New Version", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    Process.Start(url);
             }
             catch { }
         }
@@ -1273,204 +1276,14 @@ namespace HaRepacker.GUI
             MainPanel.findStrip.Visible = true;
         }
 
+        private static readonly string HelpFile = "Help.htm";
         private void viewHelpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string helpPath = Path.Combine(Application.StartupPath, "Help.htm");
+            string helpPath = Path.Combine(Application.StartupPath, HelpFile);
             if (File.Exists(helpPath))
-                Process.Start(helpPath);
+                Help.ShowHelp(this, HelpFile);
             else
-                Warning.Error("Help could not be shown because the help file (HRHelp.htm) was not found");
+                Warning.Error("Help could not be shown because the help file (" + HelpFile + ") was not found");
         }
-
-        /*public class PortalRInfo
-        {
-            public OptionalObject tm = new OptionalObject();
-            public OptionalObject tn = new OptionalObject();
-            public OptionalObject pn = new OptionalObject();
-
-            public OptionalObject image = new OptionalObject();
-            public OptionalObject script = new OptionalObject();
-            public OptionalObject verticalImpact = new OptionalObject();
-            public OptionalObject horizontalImpact = new OptionalObject();
-            public OptionalObject hRange = new OptionalObject();
-            public OptionalObject vRange = new OptionalObject();
-            public OptionalObject delay = new OptionalObject();
-            public OptionalObject hideTooltip = new OptionalObject();
-            public OptionalObject onlyOnce = new OptionalObject();
-
-            public int existance = 0;
-        }
-
-        public class OptionalObject
-        {
-            public bool initialized = false;
-            public Existance exists;
-            public bool indeterminate = false;
-            public object value = null;
-            public int extistance = 0;
-        }*/
-
-        /*public class OptionalInt
-        {
-            public bool initialized = false;
-            public Existance exists;
-            public bool indeterminate = false;
-            public object value = null;
-            public int extistance = 0;
-        }
-
-        public class OptionalBool
-        {
-            public bool initialized = false;
-            public Existance exists;
-            public bool indeterminate = false;
-            public object value = null;
-            public int extistance = 0;
-        }*/
-
-        /*public enum Existance
-        {
-            NotExist,
-            Indeterminate,
-            Exists
-        }
-
-        private void DoComparison(object value, OptionalObject statValue)
-        {
-            if (!statValue.initialized)
-            {
-                statValue.initialized = true;
-                if (value == null)
-                    statValue.exists = Existance.NotExist;
-                else
-                {
-                    statValue.value = value;
-                    statValue.exists = Existance.Exists;
-                    statValue.extistance++;
-                }
-            }
-            else
-            {
-                switch (statValue.exists)
-                {
-                    case Existance.NotExist:
-                        if (value != null)
-                        {
-                            statValue.exists = Existance.Indeterminate;
-                            statValue.extistance++;
-                            statValue.value = value;
-                        }
-                        break;
-                    case Existance.Indeterminate:
-                        if (value != null)
-                        {
-                            statValue.extistance++;
-                            if (!(statValue.indeterminate || statValue.value.Equals(value)))
-                                statValue.indeterminate = true;
-                        }
-                        break;
-                    case Existance.Exists:
-                        if (value == null)
-                            statValue.exists = Existance.Indeterminate;
-                        else
-                        {
-                            statValue.extistance++;
-                            if (!(statValue.indeterminate || statValue.value.Equals(value)))
-                                statValue.indeterminate = true;
-                        }
-                        break;
-                }
-            }
-        }
-
-        public static bool? GetOptionalBool(IWzImageProperty source)
-        {
-            if (source == null) return null;
-            else if (((WzCompressedIntProperty)source).Value != 0 && ((WzCompressedIntProperty)source).Value != 1) throw new Exception();
-            else return ((WzCompressedIntProperty)source).Value == 1;
-        }
-
-        private void test1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PortalRInfo[] portals = new PortalRInfo[15];
-            for (int i = 0; i < portals.Length; i++) 
-                portals[i] = new PortalRInfo();
-            WzDirectory dir = (WzDirectory)MainPanel.DataTree.SelectedNode.Tag;
-            foreach (WzDirectory mapcat in dir.WzDirectories)
-            {
-                foreach (WzImage mapimg in mapcat.WzImages)
-                {
-                    if (!mapimg.Parsed) mapimg.ParseImage();
-                    IWzImageProperty portalParent = mapimg["portal"];
-                    if (portalParent == null) continue;
-                    foreach (IWzImageProperty portal in portalParent.WzProperties)
-                    {
-                        int pt = InfoTool.GetInt(portal["pt"]);
-
-                        PortalRInfo info = portals[pt];
-
-                        int tm = InfoTool.GetInt(portal["tm"]);
-                        string tn = InfoTool.GetString(portal["tn"]);
-                        string pn = InfoTool.GetString(portal["pn"]);
-                        string image = InfoTool.GetOptionalString(portal["image"]);
-                        string script = InfoTool.GetOptionalString(portal["script"]);
-                        int? verticalImpact = InfoTool.GetOptionalInt(portal["verticalImpact"]);
-                        int? horizontalImpact = InfoTool.GetOptionalInt(portal["horizontalImpact"]);
-                        int? hRange = InfoTool.GetOptionalInt(portal["hRange"]);
-                        int? vRange = InfoTool.GetOptionalInt(portal["vRange"]);
-                        int? delay = InfoTool.GetOptionalInt(portal["delay"]);
-                        bool? hideTooltip = GetOptionalBool(portal["hideTooltip"]);
-                        bool? onlyOnce = GetOptionalBool(portal["onlyOnce"]);
-
-                        if (pt == 12 && tn != "")
-                        {
-                        }
-
-                        info.existance++;
-
-                        DoComparison(tm, info.tm);
-                        DoComparison(tn, info.tn);
-                        DoComparison(pn, info.pn);
-                        DoComparison(image, info.image);
-                        DoComparison(script, info.script);
-                        DoComparison(verticalImpact, info.verticalImpact);
-                        DoComparison(horizontalImpact, info.horizontalImpact);
-                        DoComparison(hRange, info.hRange);
-                        DoComparison(vRange, info.vRange);
-                        DoComparison(delay, info.delay);
-                        DoComparison(hideTooltip, info.hideTooltip);
-                        DoComparison(onlyOnce, info.onlyOnce);
-                    }
-                }
-            }
-            StreamWriter sw = File.CreateText(@"D:\txtpool\pstatres.txt");
-            for (int i = 0; i < portals.Length; i++)
-            {
-                PortalRInfo info = portals[i];
-                sw.Write(i.ToString() + "(" + info.existance + "):\r\n");
-                OptionalObject[] objs = { info.tm, info.tn, info.pn, info.image, info.script, info.verticalImpact, info.horizontalImpact, info.hRange, info.vRange, info.delay, info.hideTooltip, info.onlyOnce };
-                string[] objNames = { "tm", "tn", "pn", "image", "script", "verticalImpact", "horizontalImpact", "hRange", "vRange", "delay", "hideTooltip", "onlyOnce" };
-                for (int j = 0; j < objs.Length; j++)
-                {
-                    OptionalObject obj = objs[j];
-                    if (obj.exists == Existance.NotExist) continue;
-                    sw.Write("    " + objNames[j] + "(" + obj.extistance + ")" + (obj.exists == Existance.Indeterminate ? " - IndeterminateExistance" : "") + (obj.indeterminate ? "" : (" - Value: " + (obj.value == null ? "Null" : obj.value.ToString()))) + "\r\n");
-                }
-                sw.Write("\r\n");
-            }
-            sw.Write("END");
-            sw.Close();
-        }
-
-        private void jrBoogieToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog() { Title = "Choose the Sound.wz file", Filter = "WZ Files(*.wz)|*.wz", Multiselect = true };
-            if (dialog.ShowDialog() != DialogResult.OK) return;
-            string outPath = GetOutputDirectory();
-            if (outPath == "") return;
-            try
-            {
-                
-        }*/
     }
 }
