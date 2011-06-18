@@ -68,7 +68,7 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <Win32Resource>D:\installs\hacks\HaSuite\ResourceTemplate.res</Win32Resource>
+    <Win32Resource>..\ResourceTemplate.res</Win32Resource>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar.Design, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
