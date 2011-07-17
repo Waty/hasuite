@@ -29,7 +29,7 @@ namespace HaRepackerLib
 {
     public class WzFileManager
     {
-        private List<IWzFile> wzFiles = new List<IWzFile>();
+        private List<WzFile> wzFiles = new List<WzFile>();
 
         public WzFileManager()
         {
@@ -53,13 +53,13 @@ namespace HaRepackerLib
             }
         }
 
-        public void UnloadWzFile(IWzFile file)
+        public void UnloadWzFile(WzFile file)
         {
             ((WzNode)file.HRTag).Delete();
             wzFiles.Remove(file);
         }
 
-        public void ReloadWzFile(IWzFile file, HaRepackerMainPanel panel)
+        public void ReloadWzFile(WzFile file, HaRepackerMainPanel panel)
         {
             WzMapleVersion encVersion = file.MapleVersion;
             string path = file.FilePath;
@@ -90,7 +90,7 @@ namespace HaRepackerLib
             SortNodesRecursively(node);
         }
 
-        public void InsertWzFileUnsafe(IWzFile f, HaRepackerMainPanel panel)
+        public void InsertWzFileUnsafe(WzFile f, HaRepackerMainPanel panel)
         {
             wzFiles.Add(f);
             WzNode node = new WzNode(f);

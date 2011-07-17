@@ -256,7 +256,7 @@ namespace HaRepackerLib
             Node[] nodeArr = new Node[DataTree.SelectedNodes.Count];
             DataTree.SelectedNodes.CopyTo(nodeArr, 0);
             foreach (WzNode node in nodeArr)
-                if (!(node.Tag is IWzFile) && node.Parent != null)
+                if (!(node.Tag is WzFile) && node.Parent != null)
                 {
                     actions.Add(UndoRedoManager.ObjectRemoved((WzNode)node.Parent, node));
                     node.Delete();
