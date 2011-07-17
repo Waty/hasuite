@@ -26,7 +26,7 @@ namespace HaRepacker.GUI
     public partial class SaveForm : Form
     {
         private WzNode wzNode;
-        private IWzFile wzf;
+        private WzFile wzf;
         public string path;
         HaRepackerMainPanel panel;
         
@@ -34,7 +34,7 @@ namespace HaRepacker.GUI
         {
             InitializeComponent();
             this.wzNode = wzNode;
-            this.wzf = (IWzFile)wzNode.Tag;
+            this.wzf = (WzFile)wzNode.Tag;
             this.panel = panel;
         }
 

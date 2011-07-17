@@ -69,7 +69,7 @@ namespace HaRepackerLib
         {
             get
             {
-                return (Tag is IWzFile ||
+                return (Tag is WzFile ||
                     Tag is WzDirectory ||
                     Tag is WzImage ||
                     Tag is IPropertyContainer);

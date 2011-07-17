@@ -619,7 +619,7 @@ namespace HaRepacker.GUI
             }
             else
             {
-                if (MainPanel.DataTree.SelectedNode.Tag is IWzFile)
+                if (MainPanel.DataTree.SelectedNode.Tag is WzFile)
                     node = (WzNode)MainPanel.DataTree.SelectedNode;
                 else
                     node = ((WzNode)MainPanel.DataTree.SelectedNode).TopLevelNode;
@@ -1147,7 +1147,7 @@ namespace HaRepacker.GUI
         private void xMLToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             if (MainPanel.DataTree.SelectedNode == null ||(!(MainPanel.DataTree.SelectedNode.Tag is WzDirectory) && !(MainPanel.DataTree.SelectedNode.Tag is WzFile) && !(MainPanel.DataTree.SelectedNode.Tag is IPropertyContainer))) return;
-             IWzFile wzFile = ((IWzObject)MainPanel.DataTree.SelectedNode.Tag).WzFileParent;
+             WzFile wzFile = ((IWzObject)MainPanel.DataTree.SelectedNode.Tag).WzFileParent;
             if (!(wzFile is WzFile)) return;
             OpenFileDialog dialog = new OpenFileDialog() { Title = "Select the XML files", Filter = "eXtended Markup Language (*.xml)|*.xml", Multiselect = true };
             if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
@@ -1256,7 +1256,7 @@ namespace HaRepacker.GUI
         private void iMGToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             if (MainPanel.DataTree.SelectedNode == null || (!(MainPanel.DataTree.SelectedNode.Tag is WzDirectory) && !(MainPanel.DataTree.SelectedNode.Tag is WzFile) && !(MainPanel.DataTree.SelectedNode.Tag is IPropertyContainer))) return;
-            IWzFile wzFile = ((IWzObject)MainPanel.DataTree.SelectedNode.Tag).WzFileParent;
+            WzFile wzFile = ((IWzObject)MainPanel.DataTree.SelectedNode.Tag).WzFileParent;
             if (!(wzFile is WzFile)) return;
             OpenFileDialog dialog = new OpenFileDialog() { Title = "Select the IMG files", Filter = "WZ Image Files (*.img)|*.img", Multiselect = true };
             if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
