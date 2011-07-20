@@ -705,7 +705,7 @@ namespace HaRepacker.GUI
                 UpdateProgressBar(MainPanel.mainProgressBar, objsToDump.Count, true, true);
                 foreach (IWzObject obj in objsToDump)
                 {
-                    ((IWzObjectSerializer)serializer).SerializeObject(obj, Path.Combine(path, obj.Name));
+                    ((IWzObjectSerializer)serializer).SerializeObject(obj, path);
                     UpdateProgressBar(MainPanel.mainProgressBar, 1, false, false);
                 }
             }
