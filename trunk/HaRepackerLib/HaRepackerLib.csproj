@@ -59,20 +59,14 @@
       <HintPath>C:\Windows\assembly\GAC_32\CommonForms\0.1.3747.29792__3af2759e475084d9\CommonForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevComponents.DotNetBar.Design, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\HaRepacker40a\HaRepackerRemake\DevComponents.DotNetBar.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="DevComponents.DotNetBar2, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\HaRepacker40a\HaRepackerRemake\DevComponents.DotNetBar2.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="Microsoft.DirectX.AudioVideoPlayback, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Xml" />
     <Reference Include="WeifenLuo.WinFormsUI.Docking">
       <HintPath>C:\netsdk\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
     </Reference>
@@ -84,6 +78,12 @@
     </Compile>
     <Compile Include="Controls\ChangableTextbox.Designer.cs">
       <DependentUpon>ChangableTextbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DockableSearchResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\DockableSearchResult.Designer.cs">
+      <DependentUpon>DockableSearchResult.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\DoubleInput.cs">
       <SubType>Component</SubType>
@@ -145,6 +145,9 @@
     <EmbeddedResource Include="Controls\ChangableTextbox.resx">
       <DependentUpon>ChangableTextbox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DockableSearchResult.resx">
+      <DependentUpon>DockableSearchResult.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\HaRepackerMainPanel.resx">
       <DependentUpon>HaRepackerMainPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -201,10 +204,6 @@
     <ProjectReference Include="..\AppModule\AppModule.csproj">
       <Project>{336AA101-850B-414A-AF9B-81D60D30DF97}</Project>
       <Name>AppModule</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GifComponents\GifComponents.csproj">
-      <Project>{19D45270-91BE-4AD2-9F2E-84B3F792324F}</Project>
-      <Name>GifComponents</Name>
     </ProjectReference>
     <ProjectReference Include="..\MapleLib\MapleLib.csproj">
       <Project>{28AAB36D-942E-4476-A000-0E9DE380F390}</Project>

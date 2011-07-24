@@ -65,14 +65,6 @@
       <HintPath>C:\Windows\assembly\GAC_32\CommonForms\0.1.3747.29792__3af2759e475084d9\CommonForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevComponents.DotNetBar.Design, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\HaRepacker40a\HaRepackerRemake\DevComponents.DotNetBar.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="DevComponents.DotNetBar2, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\HaRepacker40a\HaRepackerRemake\DevComponents.DotNetBar2.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -313,10 +305,6 @@
     <ProjectReference Include="..\AppModule\AppModule.csproj">
       <Project>{336AA101-850B-414A-AF9B-81D60D30DF97}</Project>
       <Name>AppModule</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GifComponents\GifComponents.csproj">
-      <Project>{19D45270-91BE-4AD2-9F2E-84B3F792324F}</Project>
-      <Name>GifComponents</Name>
     </ProjectReference>
     <ProjectReference Include="..\HaRepackerLib\HaRepackerLib.csproj">
       <Project>{B68C971F-4B8A-44A3-88D0-6213D1A512E7}</Project>

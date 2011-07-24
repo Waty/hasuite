@@ -104,7 +104,7 @@ namespace HaRepacker.GUI
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.test1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AbortButton = new System.Windows.Forms.Button();
-            this.MainPanel = new HaRepackerLib.HaRepackerMainPanel();
+            this.MainPanel = new HaRepackerLib.Controls.HaRepackerMainPanel();
             this.mainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -636,7 +636,7 @@ namespace HaRepacker.GUI
 
         #endregion
 
-        private HaRepackerLib.HaRepackerMainPanel MainPanel;
+        private HaRepackerLib.Controls.HaRepackerMainPanel MainPanel;
         private System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;

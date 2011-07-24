@@ -21,8 +21,9 @@ using MapleLib.WzLib;
 using MapleLib.WzLib.WzProperties;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
+using WeifenLuo.WinFormsUI.Docking;
 
-namespace HaRepackerLib
+namespace HaRepackerLib.Controls
 {
     public partial class HaRepackerMainPanel : UserControl
     {
@@ -33,6 +34,7 @@ namespace HaRepackerLib
         public HaRepackerMainPanel()
         {
             InitializeComponent();
+            MainSplitContainer.Parent = MainDockPanel;
             undoRedoMan = new UndoRedoManager(this);
         }
 
@@ -42,9 +44,11 @@ namespace HaRepackerLib
             if (Width * Height == 0) return;
             //Point autoScrollPos = pictureBoxPanel.AutoScrollPosition;
             pictureBoxPanel.AutoScrollPosition = new Point();
-            MainSplitContainer.Location = new Point(0,0);
-            MainSplitContainer.Size = new Size(Width, statusStrip.Location.Y - (findStrip.Visible ? findStrip.Height : 0)/* - (searchResults.Visible ? searchResults.Height : searchResults.AutoHide ? )*/);
-            DataTree.Location = new Point(0,0);
+            MainSplitContainer.Location = new Point(0, 0);
+            MainSplitContainer.Size = new Size(Width, statusStrip.Location.Y - (findStrip.Visible ? findStrip.Height : 0));
+            MainDockPanel.Location = new Point(0, 0);
+            MainDockPanel.Size = MainSplitContainer.Size;
+            DataTree.Location = new Point(0, 0);
             DataTree.Size = new Size(MainSplitContainer.Panel1.Width, MainSplitContainer.Panel1.Height);
             nameBox.Location = new Point(0, 0);
             nameBox.Size = new Size(MainSplitContainer.Panel2.Width, nameBox.Size.Height);
@@ -698,7 +702,7 @@ namespace HaRepackerLib
             finished = false;
             listSearchResults = true;
             searchResultsList.Clear();
-            searchResultsBox.Items.Clear();
+            //searchResultsBox.Items.Clear();
             searchValues = UserSettings.SearchStringValues;
             currentidx = 0;
             searchText = findBox.Text;
@@ -710,13 +714,17 @@ namespace HaRepackerLib
                     SearchWzProperties((IPropertyContainer)node.Tag);
                 else SearchTV(node);
             }
+            DockableSearchResult dsr = new DockableSearchResult();
+            dsr.SelectedIndexChanged += new EventHandler(searchResultsBox_SelectedIndexChanged);
             foreach (string result in searchResultsList)
-                searchResultsBox.Items.Add(result);
-            searchResults.AutoHide = false;
-            searchResults.Visible = true;
-            searchResultsContainer.Visible = true;
-            dockSite8.Visible = true;
-            panelDockContainer1.Visible = true;
+                dsr.searchResultsBox.Items.Add(result);
+            dsr.Show(MainDockPanel);
+            dsr.DockState = DockState.DockBottom;
+//            searchResults.AutoHide = false;
+//            searchResults.Visible = true;
+//            searchResultsContainer.Visible = true;
+//            dockSite8.Visible = true;
+//            panelDockContainer1.Visible = true;
             findBox.Focus();
         }
 
@@ -761,6 +769,7 @@ namespace HaRepackerLib
 
         private void searchResultsBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ListBox searchResultsBox = (ListBox)sender;
             try
             {
                 if (searchResultsBox.SelectedItem != null)

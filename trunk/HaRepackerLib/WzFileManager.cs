@@ -24,6 +24,7 @@ using MapleLib.WzLib.WzProperties;
 using System.Windows.Forms;
 using System.IO;
 using MapleLib.WzLib.Util;
+using HaRepackerLib.Controls;
 
 namespace HaRepackerLib
 {

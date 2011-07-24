@@ -47,10 +47,9 @@ namespace HaRepacker.GUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaveForm));
             this.encryptionBox = new System.Windows.Forms.ComboBox();
             this.saveButton = new System.Windows.Forms.Button();
-            this.versionBox = new DevComponents.Editors.IntegerInput();
+            this.versionBox = new HaRepackerLib.Controls.IntegerInput();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.versionBox)).BeginInit();
             this.SuspendLayout();
             // 
             // encryptionBox
@@ -77,16 +76,11 @@ namespace HaRepacker.GUI
             // 
             // versionBox
             // 
-            // 
-            // 
-            // 
-            this.versionBox.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.versionBox.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.versionBox.Location = new System.Drawing.Point(75, 39);
             this.versionBox.Name = "versionBox";
-            this.versionBox.ShowUpDown = true;
             this.versionBox.Size = new System.Drawing.Size(178, 20);
             this.versionBox.TabIndex = 3;
+            this.versionBox.Value = 0;
             // 
             // label1
             // 
@@ -120,7 +114,6 @@ namespace HaRepacker.GUI
             this.Name = "SaveForm";
             this.Text = "Save";
             this.Load += new System.EventHandler(this.SaveForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.versionBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,7 +123,7 @@ namespace HaRepacker.GUI
 
         private System.Windows.Forms.Button saveButton;
         public System.Windows.Forms.ComboBox encryptionBox;
-        private DevComponents.Editors.IntegerInput versionBox;
+        private HaRepackerLib.Controls.IntegerInput versionBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

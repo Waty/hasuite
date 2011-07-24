@@ -49,8 +49,8 @@ namespace HaRepacker.GUI.Interaction
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.xBox = new System.Windows.Forms.TextBox();
-            this.yBox = new System.Windows.Forms.TextBox();
+            this.xBox = new HaRepackerLib.Controls.IntegerInput();
+            this.yBox = new HaRepackerLib.Controls.IntegerInput();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -154,8 +154,8 @@ namespace HaRepacker.GUI.Interaction
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox xBox;
-        private System.Windows.Forms.TextBox yBox;
+        private HaRepackerLib.Controls.IntegerInput xBox;
+        private HaRepackerLib.Controls.IntegerInput yBox;
         private System.Windows.Forms.Label label3;
     }
 }
