@@ -238,7 +238,7 @@ namespace HaRepackerLib
                 ((WzFile)DataTree.SelectedNode.Tag).Header.Copyright = nameBox.Text;
                 ((WzFile)DataTree.SelectedNode.Tag).Header.RecalculateFileStart();
             }
-            else if (WzNode.CanNodeBeInserted((WzNode)DataTree.SelectedNode, nameBox.Text))
+            else if (WzNode.CanNodeBeInserted((WzNode)DataTree.SelectedNode.Parent, nameBox.Text))
             {
                 string text = nameBox.Text;
                 ((WzNode)DataTree.SelectedNode).ChangeName(text);
