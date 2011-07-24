@@ -18,6 +18,7 @@ using System;
 using System.Windows.Forms;
 using HaRepackerLib;
 using MapleLib.WzLib.Serialization;
+using HaRepackerLib.Controls;
 
 namespace HaRepacker.GUI
 {
@@ -49,6 +50,7 @@ namespace HaRepacker.GUI
 
         private void okButton_Click(object sender, EventArgs e)
         {
+            if (indentBox.Value < 0) { Warning.Error("Indent must be above 0"); return; }
             panel.Sort = sortBox.Checked;
             UserSettings.UseApngIncompatibilityFrame = apngIncompEnable.Checked;
             UserSettings.AutoAssociate = autoAssociateBox.Checked;

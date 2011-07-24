@@ -49,16 +49,12 @@ namespace HaRepacker.GUI.Interaction
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            int x = 0;
-            int y = 0;
-            if (resultBox.Text != "" && resultBox.Text != null && int.TryParse(xBox.Text,out x) && int.TryParse(yBox.Text,out y))
-            {
-                nameResult = resultBox.Text;
-                pointResult = new Point(x, y);
-                DialogResult = DialogResult.OK;
-                Close();
-            }
-            else MessageBox.Show("Please enter valid input", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            int x = xBox.Value;
+            int y = yBox.Value;
+            nameResult = resultBox.Text;
+            pointResult = new Point(x, y);
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

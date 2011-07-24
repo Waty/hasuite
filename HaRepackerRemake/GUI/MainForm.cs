@@ -35,6 +35,7 @@ using MapleLib.WzLib.WzStructure;
 using System.Net;
 using System.Text;
 using System.Diagnostics;
+using HaRepackerLib.Controls;
 
 namespace HaRepacker.GUI
 {

@@ -46,10 +46,8 @@ namespace HaRepackerLib
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.xBox = new DevComponents.Editors.IntegerInput();
-            this.yBox = new DevComponents.Editors.IntegerInput();
-            ((System.ComponentModel.ISupportInitialize)(this.xBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yBox)).BeginInit();
+            this.xBox = new HaRepackerLib.Controls.IntegerInput();
+            this.yBox = new HaRepackerLib.Controls.IntegerInput();
             this.SuspendLayout();
             // 
             // label1
@@ -72,33 +70,19 @@ namespace HaRepackerLib
             // 
             // xBox
             // 
-            this.xBox.AllowEmptyState = false;
-            // 
-            // 
-            // 
-            this.xBox.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.xBox.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.xBox.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.xBox.Location = new System.Drawing.Point(26, 3);
             this.xBox.Name = "xBox";
-            this.xBox.ShowUpDown = true;
             this.xBox.Size = new System.Drawing.Size(59, 20);
             this.xBox.TabIndex = 4;
+            this.xBox.Value = 0;
             // 
             // yBox
             // 
-            this.yBox.AllowEmptyState = false;
-            // 
-            // 
-            // 
-            this.yBox.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.yBox.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.yBox.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.yBox.Location = new System.Drawing.Point(26, 29);
             this.yBox.Name = "yBox";
-            this.yBox.ShowUpDown = true;
             this.yBox.Size = new System.Drawing.Size(59, 20);
             this.yBox.TabIndex = 5;
+            this.yBox.Value = 0;
             // 
             // XYPanel
             // 
@@ -112,8 +96,6 @@ namespace HaRepackerLib
             this.MinimumSize = new System.Drawing.Size(90, 53);
             this.Name = "XYPanel";
             this.Size = new System.Drawing.Size(90, 53);
-            ((System.ComponentModel.ISupportInitialize)(this.xBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,7 +105,7 @@ namespace HaRepackerLib
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private DevComponents.Editors.IntegerInput xBox;
-        private DevComponents.Editors.IntegerInput yBox;
+        private HaRepackerLib.Controls.IntegerInput xBox;
+        private HaRepackerLib.Controls.IntegerInput yBox;
     }
 }

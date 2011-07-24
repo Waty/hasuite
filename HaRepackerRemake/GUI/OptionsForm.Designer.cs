@@ -47,7 +47,7 @@ namespace HaRepacker.GUI
             this.sortBox = new System.Windows.Forms.CheckBox();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.indentBox = new DevComponents.Editors.IntegerInput();
+            this.indentBox = new HaRepackerLib.Controls.IntegerInput();
             this.label1 = new System.Windows.Forms.Label();
             this.lineBreakBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,7 +57,6 @@ namespace HaRepacker.GUI
             this.browse = new System.Windows.Forms.Button();
             this.autoAssociateBox = new System.Windows.Forms.CheckBox();
             this.autoUpdate = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.indentBox)).BeginInit();
             this.SuspendLayout();
             // 
             // sortBox
@@ -92,19 +91,11 @@ namespace HaRepacker.GUI
             // 
             // indentBox
             // 
-            this.indentBox.AllowEmptyState = false;
-            // 
-            // 
-            // 
-            this.indentBox.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.indentBox.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.indentBox.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.indentBox.Location = new System.Drawing.Point(78, 169);
-            this.indentBox.MinValue = 0;
             this.indentBox.Name = "indentBox";
-            this.indentBox.ShowUpDown = true;
             this.indentBox.Size = new System.Drawing.Size(68, 20);
             this.indentBox.TabIndex = 4;
+            this.indentBox.Value = 0;
             // 
             // label1
             // 
@@ -217,7 +208,6 @@ namespace HaRepacker.GUI
             this.Name = "OptionsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Options";
-            ((System.ComponentModel.ISupportInitialize)(this.indentBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +218,7 @@ namespace HaRepacker.GUI
         private System.Windows.Forms.CheckBox sortBox;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
-        private DevComponents.Editors.IntegerInput indentBox;
+        private HaRepackerLib.Controls.IntegerInput indentBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox lineBreakBox;
         private System.Windows.Forms.Label label2;

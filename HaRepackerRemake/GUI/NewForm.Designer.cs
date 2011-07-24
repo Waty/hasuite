@@ -57,7 +57,7 @@ namespace HaRepacker.GUI
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.encryptionBox = new System.Windows.Forms.ComboBox();
-            this.versionBox = new DevComponents.Editors.IntegerInput();
+            this.versionBox = new HaRepackerLib.Controls.IntegerInput();
             ((System.ComponentModel.ISupportInitialize)(this.versionBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -187,18 +187,8 @@ namespace HaRepacker.GUI
             // 
             // versionBox
             // 
-            this.versionBox.AllowEmptyState = false;
-            // 
-            // 
-            // 
-            this.versionBox.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.versionBox.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.versionBox.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.versionBox.Location = new System.Drawing.Point(75, 114);
-            this.versionBox.MaxValue = 65535;
-            this.versionBox.MinValue = 1;
             this.versionBox.Name = "versionBox";
-            this.versionBox.ShowUpDown = true;
             this.versionBox.Size = new System.Drawing.Size(51, 20);
             this.versionBox.TabIndex = 13;
             this.versionBox.Value = 1;
@@ -245,6 +235,6 @@ namespace HaRepacker.GUI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox encryptionBox;
-        private DevComponents.Editors.IntegerInput versionBox;
+        private HaRepackerLib.Controls.IntegerInput versionBox;
     }
 }
