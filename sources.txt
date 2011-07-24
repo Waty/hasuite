@@ -1,0 +1,6 @@
+HaSuite - http://code.google.com/p/hasuite/
+MapleLib2 - http://code.google.com/p/maplelib2/
+GifComponents - http://sourceforge.net/projects/gifcomponents/
+CommonForms - http://sourceforge.net/projects/commonforms/
+AppModule - http://www.codeproject.com/KB/threads/dotnetnamedpipespart1.aspx
+DockPanelSuite - http://sourceforge.net/projects/dockpanelsuite/

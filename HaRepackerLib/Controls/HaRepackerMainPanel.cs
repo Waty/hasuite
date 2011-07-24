@@ -19,10 +19,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using MapleLib.WzLib;
 using MapleLib.WzLib.WzProperties;
-using DevComponents.AdvTree;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
-using DevComponents.DotNetBar;
 
 namespace HaRepackerLib
 {
@@ -75,7 +73,7 @@ namespace HaRepackerLib
             RedockControls();
         }
 
-        private void DataTree_AfterSelect(object sender, AdvTreeNodeEventArgs e)
+        private void DataTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (DataTree.SelectedNode == null) return;
             ShowObjectValue((IWzObject)DataTree.SelectedNode.Tag);
@@ -167,9 +165,9 @@ namespace HaRepackerLib
             }
         }
 
-        private void DataTree_DoubleClick(object sender, TreeNodeMouseEventArgs e)
+        private void DataTree_DoubleClick(object sender, EventArgs e)
         {
-            if (DataTree.SelectedNode.Tag is WzImage && DataTree.SelectedNode.Nodes.Count == 0)
+            if (DataTree.SelectedNode != null && DataTree.SelectedNode.Tag is WzImage && DataTree.SelectedNode.Nodes.Count == 0)
             {
                 if (!((WzImage)DataTree.SelectedNode.Tag).Parsed)
                     ((WzImage)DataTree.SelectedNode.Tag).ParseImage();
@@ -253,7 +251,7 @@ namespace HaRepackerLib
         public void RemoveSelectedNodes()
         {
             List<UndoRedoAction> actions = new List<UndoRedoAction>();
-            Node[] nodeArr = new Node[DataTree.SelectedNodes.Count];
+            TreeNode[] nodeArr = new TreeNode[DataTree.SelectedNodes.Count];
             DataTree.SelectedNodes.CopyTo(nodeArr, 0);
             foreach (WzNode node in nodeArr)
                 if (!(node.Tag is WzFile) && node.Parent != null)
@@ -485,7 +483,7 @@ namespace HaRepackerLib
             searchidx = 0;
             if (coloredNode != null)
             {
-                coloredNode.Style.BackColor = Color.White;
+                coloredNode.BackColor = Color.White;
                 coloredNode = null;
             }
         }
@@ -504,8 +502,8 @@ namespace HaRepackerLib
                         if (prop.HRTag == null)
                             ((WzNode)prop.ParentImage.HRTag).Reparse();
                         WzNode node = (WzNode)prop.HRTag;
-                        if (node.Style == null) node.Style = new ElementStyle();
-                        node.Style.BackColor = Color.Yellow;
+                        //if (node.Style == null) node.Style = new ElementStyle();
+                        node.BackColor = Color.Yellow;
                         coloredNode = node;
                         node.EnsureVisible();
                         //DataTree.Focus();
@@ -535,8 +533,8 @@ namespace HaRepackerLib
                         searchResultsList.Add(subnode.FullPath.Replace(";", @"\"));
                     else if (currentidx == searchidx)
                     {
-                        if (subnode.Style == null) subnode.Style = new ElementStyle();
-                        subnode.Style.BackColor = Color.Yellow;
+                        //if (subnode.Style == null) subnode.Style = new ElementStyle();
+                        subnode.BackColor = Color.Yellow;
                         coloredNode = subnode;
                         subnode.EnsureVisible();
                         //DataTree.Focus();
@@ -648,7 +646,7 @@ namespace HaRepackerLib
             searchidx = 0;
             if (coloredNode != null)
             {
-                coloredNode.Style.BackColor = Color.White;
+                coloredNode.BackColor = Color.White;
                 coloredNode = null;
             }
             findBox.Focus();
@@ -664,7 +662,7 @@ namespace HaRepackerLib
         {
             if (coloredNode != null)
             {
-                coloredNode.Style.BackColor = Color.White;
+                coloredNode.BackColor = Color.White;
                 coloredNode = null;
             }
             if (findBox.Text == "" || DataTree.Nodes.Count == 0) return;
@@ -692,7 +690,7 @@ namespace HaRepackerLib
         {
             if (coloredNode != null)
             {
-                coloredNode.Style.BackColor = Color.White;
+                coloredNode.BackColor = Color.White;
                 coloredNode = null;
             }
             if (findBox.Text == "" || DataTree.Nodes.Count == 0) return;
@@ -753,7 +751,7 @@ namespace HaRepackerLib
             RedockControls();
         }
 
-        private WzNode GetNodeByName(NodeCollection collection, string name)
+        private WzNode GetNodeByName(TreeNodeCollection collection, string name)
         {
             foreach (WzNode node in collection) 
                 if (node.Text == name) 
@@ -769,7 +767,7 @@ namespace HaRepackerLib
                 {
                     string[] splitPath = ((string)searchResultsBox.SelectedItem).Split(@"\".ToCharArray());
                     WzNode node = null;
-                    NodeCollection collection = DataTree.Nodes;
+                    TreeNodeCollection collection = DataTree.Nodes;
                     for (int i = 0; i < splitPath.Length; i++)
                     {
                         node = GetNodeByName(collection, splitPath[i]);
@@ -784,6 +782,7 @@ namespace HaRepackerLib
                     {
                         DataTree.SelectedNode = node;
                         node.EnsureVisible();
+                        DataTree.RefreshSelectedNodes();
                     }
                 }
             }

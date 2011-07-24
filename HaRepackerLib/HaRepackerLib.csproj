@@ -49,6 +49,11 @@
     <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GifComponents, Version=0.1.3747.30698, Culture=neutral, PublicKeyToken=3af2759e475084d9, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_32\GifComponents\0.1.3747.30698__3af2759e475084d9\GifComponents.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CommonForms, Version=0.1.3747.29792, Culture=neutral, PublicKeyToken=3af2759e475084d9, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_32\CommonForms\0.1.3747.29792__3af2759e475084d9\CommonForms.dll</HintPath>
@@ -56,16 +61,11 @@
     </Reference>
     <Reference Include="DevComponents.DotNetBar.Design, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\DotNetBar\Bin\DevComponents.DotNetBar.Design.dll</HintPath>
+      <HintPath>..\..\HaRepacker40a\HaRepackerRemake\DevComponents.DotNetBar.Design.dll</HintPath>
     </Reference>
-    <Reference Include="DevComponents.DotNetBar2, Version=8.7.0.2, Culture=neutral, PublicKeyToken=4bef0fb27262ffc4, processorArchitecture=MSIL">
+    <Reference Include="DevComponents.DotNetBar2, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\DotNetBar\Bin\DevComponents.DotNetBar2.dll</HintPath>
-    </Reference>
-    <Reference Include="GifComponents, Version=0.1.3747.30698, Culture=neutral, PublicKeyToken=3af2759e475084d9, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Windows\assembly\GAC_32\GifComponents\0.1.3747.30698__3af2759e475084d9\GifComponents.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\HaRepacker40a\HaRepackerRemake\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -73,30 +73,30 @@
     <Reference Include="Microsoft.DirectX.AudioVideoPlayback, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <Private>True</Private>
     </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>C:\netsdk\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnimationBuilder.cs" />
-    <Compile Include="AppModule\InterProcessComm\IChannelManager.cs" />
-    <Compile Include="AppModule\InterProcessComm\IClientChannel.cs" />
-    <Compile Include="AppModule\InterProcessComm\IInterProcessConnection.cs" />
-    <Compile Include="AppModule\InterProcessComm\InterProcessConnectionState.cs" />
-    <Compile Include="AppModule\InterProcessComm\InterProcessIOException.cs" />
-    <Compile Include="AppModule\NamedPipes\APipeConnection.cs" />
-    <Compile Include="AppModule\NamedPipes\ClientPipeConnection.cs" />
-    <Compile Include="AppModule\NamedPipes\NamedPipeIOException.cs" />
-    <Compile Include="AppModule\NamedPipes\NamedPipeNative.cs" />
-    <Compile Include="AppModule\NamedPipes\NamedPipeWrapper.cs" />
-    <Compile Include="AppModule\NamedPipes\PipeHandle.cs" />
-    <Compile Include="AppModule\NamedPipes\ServerPipeConnection.cs" />
     <Compile Include="Controls\ChangableTextbox.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\ChangableTextbox.Designer.cs">
       <DependentUpon>ChangableTextbox.cs</DependentUpon>
     </Compile>
-    <None Include="ExternalClasses\TreeView.cs">
+    <Compile Include="Controls\DoubleInput.cs">
       <SubType>Component</SubType>
-    </None>
+    </Compile>
+    <Compile Include="Controls\HaRepackerMainPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\HaRepackerMainPanel.Designer.cs">
+      <DependentUpon>HaRepackerMainPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IntegerInput.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ReplaceBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,13 +109,10 @@
     <Compile Include="Controls\SearchOptionsForm.Designer.cs">
       <DependentUpon>SearchOptionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TreeViewMS.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SharpApng.cs" />
-    <Compile Include="Controls\HaRepackerMainPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\HaRepackerMainPanel.Designer.cs">
-      <DependentUpon>HaRepackerMainPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -129,15 +126,10 @@
     <Compile Include="Controls\SoundPlayer.designer.cs">
       <DependentUpon>SoundPlayer.cs</DependentUpon>
     </Compile>
-    <None Include="ExternalClasses\TreeViewMS.cs">
-      <SubType>Component</SubType>
-    </None>
     <Compile Include="UndoRedoManager.cs" />
     <Compile Include="Warning.cs" />
     <Compile Include="WzFileManager.cs" />
-    <Compile Include="WzNode.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="WzNode.cs" />
     <Compile Include="WzSettings.cs" />
     <Compile Include="Controls\XYPanel.cs">
       <SubType>UserControl</SubType>
@@ -156,6 +148,9 @@
     <EmbeddedResource Include="Controls\HaRepackerMainPanel.resx">
       <DependentUpon>HaRepackerMainPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TreeViewMS.resx">
+      <DependentUpon>TreeViewMS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -203,6 +198,14 @@
     <None Include="Resources\arrow_right.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AppModule\AppModule.csproj">
+      <Project>{336AA101-850B-414A-AF9B-81D60D30DF97}</Project>
+      <Name>AppModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GifComponents\GifComponents.csproj">
+      <Project>{19D45270-91BE-4AD2-9F2E-84B3F792324F}</Project>
+      <Name>GifComponents</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MapleLib\MapleLib.csproj">
       <Project>{28AAB36D-942E-4476-A000-0E9DE380F390}</Project>
       <Name>MapleLib</Name>

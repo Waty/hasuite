@@ -47,9 +47,7 @@ namespace HaRepackerLib
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HaRepackerMainPanel));
             this.MainSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.DataTree = new DevComponents.AdvTree.AdvTree();
-            this.nodeConnector2 = new DevComponents.AdvTree.NodeConnector();
-            this.elementStyle2 = new DevComponents.DotNetBar.ElementStyle();
+            this.DataTree = new TreeViewMS.TreeViewMS();
             this.saveSoundButton = new System.Windows.Forms.Button();
             this.saveImageButton = new System.Windows.Forms.Button();
             this.changeSoundButton = new System.Windows.Forms.Button();
@@ -91,7 +89,6 @@ namespace HaRepackerLib
             this.MainSplitContainer.Panel1.SuspendLayout();
             this.MainSplitContainer.Panel2.SuspendLayout();
             this.MainSplitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataTree)).BeginInit();
             this.pictureBoxPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.canvasPropBox)).BeginInit();
             this.statusStrip.SuspendLayout();
@@ -130,40 +127,14 @@ namespace HaRepackerLib
             // 
             // DataTree
             // 
-            this.DataTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
-            this.DataTree.AllowDrop = true;
-            this.DataTree.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.DataTree.BackgroundStyle.Class = "TreeBorderKey";
-            this.DataTree.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.DataTree.DragDropEnabled = false;
-            this.DataTree.DragDropNodeCopyEnabled = false;
-            this.DataTree.Location = new System.Drawing.Point(36, 56);
-            this.DataTree.MultiSelect = true;
+            this.DataTree.Location = new System.Drawing.Point(53, 59);
             this.DataTree.Name = "DataTree";
-            this.DataTree.NodesConnector = this.nodeConnector2;
-            this.DataTree.NodeStyle = this.elementStyle2;
-            this.DataTree.PathSeparator = ";";
-            this.DataTree.Size = new System.Drawing.Size(147, 196);
-            this.DataTree.Styles.Add(this.elementStyle2);
-            this.DataTree.TabIndex = 0;
-            this.DataTree.Text = "DataTree";
-            this.DataTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.DataTree_AfterSelect);
-            this.DataTree.NodeDoubleClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.DataTree_DoubleClick);
+            this.DataTree.SelectedNodes = ((System.Collections.ArrayList)(resources.GetObject("DataTree.SelectedNodes")));
+            this.DataTree.Size = new System.Drawing.Size(108, 193);
+            this.DataTree.TabIndex = 1;
+            this.DataTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.DataTree_AfterSelect);
+            this.DataTree.DoubleClick += new System.EventHandler(this.DataTree_DoubleClick);
             this.DataTree.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DataTree_KeyDown);
-            // 
-            // nodeConnector2
-            // 
-            this.nodeConnector2.LineColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle2
-            // 
-            this.elementStyle2.Class = "";
-            this.elementStyle2.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.elementStyle2.Name = "elementStyle2";
-            this.elementStyle2.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // saveSoundButton
             // 
@@ -335,7 +306,7 @@ namespace HaRepackerLib
             this.btnRestart,
             this.btnClose,
             this.btnOptions});
-            this.findStrip.Location = new System.Drawing.Point(0, 311);
+            this.findStrip.Location = new System.Drawing.Point(0, 351);
             this.findStrip.Name = "findStrip";
             this.findStrip.Size = new System.Drawing.Size(663, 25);
             this.findStrip.TabIndex = 2;
@@ -583,7 +554,6 @@ namespace HaRepackerLib
             this.MainSplitContainer.Panel2.ResumeLayout(false);
             this.MainSplitContainer.Panel2.PerformLayout();
             this.MainSplitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DataTree)).EndInit();
             this.pictureBoxPanel.ResumeLayout(false);
             this.pictureBoxPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.canvasPropBox)).EndInit();
@@ -611,9 +581,6 @@ namespace HaRepackerLib
         private DevComponents.AdvTree.Node node1;
         private DevComponents.DotNetBar.ElementStyle elementStyle1;
         private DevComponents.AdvTree.NodeConnector nodeConnector1;
-        private DevComponents.AdvTree.NodeConnector nodeConnector2;
-        private DevComponents.DotNetBar.ElementStyle elementStyle2;
-        public DevComponents.AdvTree.AdvTree DataTree;
         public System.Windows.Forms.ToolStripProgressBar secondaryProgressBar;
         public System.Windows.Forms.ToolStripProgressBar mainProgressBar;
         private ChangableTextbox nameBox;
@@ -643,5 +610,6 @@ namespace HaRepackerLib
         private System.Windows.Forms.ToolStripButton btnOptions;
         private System.Windows.Forms.ListBox searchResultsBox;
         public System.Windows.Forms.ToolStrip findStrip;
+        public TreeViewMS.TreeViewMS DataTree;
     }
 }
