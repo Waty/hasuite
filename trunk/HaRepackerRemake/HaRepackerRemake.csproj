@@ -55,6 +55,11 @@
     <Win32Resource>..\ResourceTemplate.res</Win32Resource>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GifComponents, Version=0.1.3747.30698, Culture=neutral, PublicKeyToken=3af2759e475084d9, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_32\GifComponents\0.1.3747.30698__3af2759e475084d9\GifComponents.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CommonForms, Version=0.1.3747.29792, Culture=neutral, PublicKeyToken=3af2759e475084d9, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_32\CommonForms\0.1.3747.29792__3af2759e475084d9\CommonForms.dll</HintPath>
@@ -62,16 +67,11 @@
     </Reference>
     <Reference Include="DevComponents.DotNetBar.Design, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\DotNetBar\Bin\DevComponents.DotNetBar.Design.dll</HintPath>
+      <HintPath>..\..\HaRepacker40a\HaRepackerRemake\DevComponents.DotNetBar.Design.dll</HintPath>
     </Reference>
-    <Reference Include="DevComponents.DotNetBar2, Version=8.7.0.2, Culture=neutral, PublicKeyToken=4bef0fb27262ffc4, processorArchitecture=MSIL">
+    <Reference Include="DevComponents.DotNetBar2, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\DotNetBar\Bin\DevComponents.DotNetBar2.dll</HintPath>
-    </Reference>
-    <Reference Include="GifComponents, Version=0.1.3747.30698, Culture=neutral, PublicKeyToken=3af2759e475084d9, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Windows\assembly\GAC_32\GifComponents\0.1.3747.30698__3af2759e475084d9\GifComponents.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\HaRepacker40a\HaRepackerRemake\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -81,6 +81,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>C:\netsdk\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GUI\AboutForm.cs">
@@ -307,6 +310,14 @@
     <Content Include="sharingan.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AppModule\AppModule.csproj">
+      <Project>{336AA101-850B-414A-AF9B-81D60D30DF97}</Project>
+      <Name>AppModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GifComponents\GifComponents.csproj">
+      <Project>{19D45270-91BE-4AD2-9F2E-84B3F792324F}</Project>
+      <Name>GifComponents</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HaRepackerLib\HaRepackerLib.csproj">
       <Project>{B68C971F-4B8A-44A3-88D0-6213D1A512E7}</Project>
       <Name>HaRepackerLib</Name>

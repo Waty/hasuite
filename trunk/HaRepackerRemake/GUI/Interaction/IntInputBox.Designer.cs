@@ -49,8 +49,7 @@ namespace HaRepacker.GUI.Interaction
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.valueBox = new DevComponents.Editors.IntegerInput();
-            ((System.ComponentModel.ISupportInitialize)(this.valueBox)).BeginInit();
+            this.valueBox = new HaRepackerLib.Controls.IntegerInput();
             this.SuspendLayout();
             // 
             // label1
@@ -101,16 +100,8 @@ namespace HaRepacker.GUI.Interaction
             // 
             // valueBox
             // 
-            this.valueBox.AllowEmptyState = false;
-            // 
-            // 
-            // 
-            this.valueBox.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.valueBox.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.valueBox.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.valueBox.Location = new System.Drawing.Point(56, 38);
             this.valueBox.Name = "valueBox";
-            this.valueBox.ShowUpDown = true;
             this.valueBox.Size = new System.Drawing.Size(132, 20);
             this.valueBox.TabIndex = 1;
             this.valueBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameBox_KeyPress);
@@ -130,7 +121,6 @@ namespace HaRepacker.GUI.Interaction
             this.Name = "IntInputBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameBox_KeyPress);
-            ((System.ComponentModel.ISupportInitialize)(this.valueBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,6 +133,6 @@ namespace HaRepacker.GUI.Interaction
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label label2;
-        private DevComponents.Editors.IntegerInput valueBox;
+        private HaRepackerLib.Controls.IntegerInput valueBox;
     }
 }

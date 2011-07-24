@@ -100,8 +100,7 @@ namespace HaRepackerLib
 
         private void SortNodesRecursively(WzNode parent)
         {
-            parent.Nodes.Sort();
-            foreach (WzNode node in parent.Nodes) if (node.Tag is WzDirectory) SortNodesRecursively(node);
+            parent.TreeView.Sort();
         }
 
         public void ReloadAll(HaRepackerMainPanel panel)

@@ -19,12 +19,10 @@ using System.Windows.Forms;
 using MapleLib.WzLib;
 using MapleLib.WzLib.WzProperties;
 using System.Collections;
-using DevComponents.AdvTree;
-using DevComponents.DotNetBar;
 
 namespace HaRepackerLib
 {
-    public class WzNode : Node
+    public class WzNode : TreeNode
     {
         public WzNode(IWzObject SourceObject)
             : base(SourceObject.Name)
