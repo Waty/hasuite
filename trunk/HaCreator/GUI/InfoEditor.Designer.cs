@@ -71,7 +71,7 @@ namespace HaCreator
             this.cannotReturnCBX = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.mobRate = new DevComponents.Editors.DoubleInput();
             this.IDLabel = new DevComponents.DotNetBar.LabelX();
-            this.soundPlayer = new HaCreator.SoundPlayer();
+            this.soundPlayer = new HaRepackerLib.Controls.SoundPlayer();
             this.returnBox = new DevComponents.Editors.IntegerInput();
             this.forcedRet = new DevComponents.Editors.IntegerInput();
             this.markImage = new System.Windows.Forms.PictureBox();
@@ -1971,7 +1971,7 @@ namespace HaCreator
 
         private DevComponents.DotNetBar.LabelX label1;
         private DevComponents.DotNetBar.Controls.ComboBoxEx bgmBox;
-        private SoundPlayer soundPlayer;
+        private HaRepackerLib.Controls.SoundPlayer soundPlayer;
         private DevComponents.DotNetBar.LabelX label2;
         private DevComponents.DotNetBar.LabelX label3;
         private DevComponents.DotNetBar.LabelX label4;

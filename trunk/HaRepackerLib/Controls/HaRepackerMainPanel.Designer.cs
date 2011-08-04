@@ -69,7 +69,7 @@ namespace HaRepackerLib.Controls
             this.applyChangesButton = new System.Windows.Forms.Button();
             this.nameBox = new HaRepackerLib.ChangableTextbox();
             this.vectorPanel = new HaRepackerLib.XYPanel();
-            this.mp3Player = new HaRepackerLib.SoundPlayer();
+            this.mp3Player = new HaRepackerLib.Controls.SoundPlayer();
             this.textPropBox = new System.Windows.Forms.TextBox();
             this.pictureBoxPanel = new System.Windows.Forms.Panel();
             this.canvasPropBox = new System.Windows.Forms.PictureBox();
