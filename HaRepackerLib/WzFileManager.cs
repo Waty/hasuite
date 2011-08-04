@@ -109,9 +109,17 @@ namespace HaRepackerLib
             for (int i = 0; i < wzFiles.Count; i++) ReloadWzFile(wzFiles[i], panel);
         }
 
-        public void UnloadAll(HaRepackerMainPanel panel)
+        public void UnloadAll()
         {
             while (wzFiles.Count > 0) UnloadWzFile(wzFiles[0]);
+        }
+
+        public void Terminate()
+        {
+            foreach (WzFile f in wzFiles)
+            {
+                f.Dispose();
+            }
         }
     }
 }

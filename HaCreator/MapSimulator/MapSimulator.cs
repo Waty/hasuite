@@ -11,7 +11,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.DirectX.AudioVideoPlayback;
 using System.IO;
 using MapleLib.WzLib;
 using MapleLib.WzLib.WzProperties;
@@ -20,6 +19,7 @@ using HaCreator.MapEditor;
 using HaCreator.WzStructure;
 using MapleLib.WzLib.WzStructure.Data;
 using MapleLib.WzLib.WzStructure;
+using HaRepackerLib;
 
 namespace HaCreator.MapSimulator
 {
@@ -46,7 +46,7 @@ namespace HaCreator.MapSimulator
         private Texture2D minimap;
         //private bool debug = true;
         private Texture2D pixel;
-        private Audio audio;
+        private WzMp3Streamer audio;
         private bool usePhysics = false;
 
         private static List<MapItem>[] CreateLayersArray()
@@ -62,10 +62,7 @@ namespace HaCreator.MapSimulator
             WzSoundProperty bgm = Program.InfoManager.BGMs[mapBoard.MapInfo.bgm];
             if (bgm != null)
             {
-                string tempBgmFile = Path.GetTempFileName();
-                bgm.SaveToFile(tempBgmFile);
-                audio = new Audio(tempBgmFile);
-                audio.Ending += new EventHandler(audio_Ending);
+                audio = new WzMp3Streamer(bgm, true);
             }
             MapSimulator.mapCenter = mapBoard.CenterPoint;
             if (mapBoard.MapInfo.VR == null) vr = new Rectangle(0, 0, mapBoard.MapSize.X, mapBoard.MapSize.Y);
@@ -122,12 +119,6 @@ namespace HaCreator.MapSimulator
             sprite = new SpriteBatch(DxDevice);
             //character = new Character(400 + mapCenter.X, 300 + mapCenter.Y);
             //character.DoFly();
-        }
-
-        private void audio_Ending(object sender, EventArgs e)
-        {
-            audio.CurrentPosition = 0;
-            audio.Play();
         }
 
         public new object GetService(Type serviceType)
@@ -557,7 +548,7 @@ namespace HaCreator.MapSimulator
         {
             if (audio != null)
             {
-                audio.Stop();
+                audio.Pause();
                 audio.Dispose();
             }
         }

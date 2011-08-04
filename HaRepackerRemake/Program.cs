@@ -91,9 +91,10 @@ namespace HaRepacker
 
         public static void EndApplication(bool usingPipes)
         {
-            SettingsManager.Save();
             if (PipeManager != null && usingPipes) PipeManager.Stop();
             if (MainForm.updater != null) MainForm.updater.Abort();
+            WzMan.Terminate();
+            SettingsManager.Save();
         }
     }
 }

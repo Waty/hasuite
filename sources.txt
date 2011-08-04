@@ -1,6 +1,8 @@
-HaSuite - http://code.google.com/p/hasuite/
-MapleLib2 - http://code.google.com/p/maplelib2/
-GifComponents - http://sourceforge.net/projects/gifcomponents/
-CommonForms - http://sourceforge.net/projects/commonforms/
-AppModule - http://www.codeproject.com/KB/threads/dotnetnamedpipespart1.aspx
-DockPanelSuite - http://sourceforge.net/projects/dockpanelsuite/
+HaSuite (GPLv3) - http://code.google.com/p/hasuite/
+MapleLib2 (GPLv3) - http://code.google.com/p/maplelib2/
+GifComponents (GPLv3, CPOL) - http://sourceforge.net/projects/gifcomponents/
+CommonForms (GPLv3) - http://sourceforge.net/projects/commonforms/
+AppModule (CPOL) - http://www.codeproject.com/KB/threads/dotnetnamedpipespart1.aspx
+DockPanelSuite (MIT) - http://sourceforge.net/projects/dockpanelsuite/
+WPFColorPicker (CPOL) - http://www.codeproject.com/KB/WPF/WPFColorPicker.aspx
+NAudio (MSPL) - http://naudio.codeplex.com/

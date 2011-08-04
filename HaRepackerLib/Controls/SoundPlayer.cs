@@ -18,19 +18,25 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using MapleLib.WzLib.WzProperties;
-using Microsoft.DirectX.AudioVideoPlayback;
 
-namespace HaRepackerLib
+namespace HaRepackerLib.Controls
 {
     public partial class SoundPlayer : UserControl
     {
-        private Audio currAudio;
-        private string currSoundFile = "";
+        private WzMp3Streamer currAudio;
+        //private string currSoundFile = "";
         private WzSoundProperty soundProp;
 
         public SoundPlayer()
         {
             InitializeComponent();
+            Disposed += new EventHandler(SoundPlayer_Disposed);
+        }
+
+        void SoundPlayer_Disposed(object sender, EventArgs e)
+        {
+            if (currAudio != null)
+                currAudio.Dispose();
         }
 
         private void PauseButton_Click(object sender, EventArgs e)
@@ -44,36 +50,27 @@ namespace HaRepackerLib
         private void TimeBar_Scroll(object sender, EventArgs e)
         {
             if (currAudio != null)
-                currAudio.CurrentPosition = ((TrackBar)sender).Value;
+                currAudio.Position = ((TrackBar)sender).Value;
         }
 
         private void AudioTimer_Tick(object sender, EventArgs e)
         {
             if (currAudio == null) return;
-            if (currAudio.CurrentPosition == currAudio.Duration)
-                if (LoopBox.Checked)
-                    currAudio.CurrentPosition = 0;
-                else
-                {
-                    currAudio.Stop();
-                    PlayButton.Visible = true;
-                    PauseButton.Visible = false;
-                    TimeBar.Value = 0;
-                }
-            TimeBar.Value = (int)currAudio.CurrentPosition;
-            TimeSpan time = TimeSpan.FromSeconds(currAudio.CurrentPosition);
+            TimeBar.Value = (int)currAudio.Position;
+            TimeSpan time = TimeSpan.FromSeconds(currAudio.Position);
             CurrentPositionLabel.Text = Convert.ToString(time.Minutes).PadLeft(2, '0') + ":" + Convert.ToString(time.Seconds).PadLeft(2, '0') + " /";
         }
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
-            if (currSoundFile == "")
+            if (currAudio == null)
             {
-                currSoundFile = Path.GetTempFileName();
-                soundProp.SaveToFile(currSoundFile);
-                currAudio = new Audio(currSoundFile, true);
-                TimeBar.Maximum = (int)currAudio.Duration;
+                //currSoundFile = Path.GetTempFileName();
+                //soundProp.SaveToFile(currSoundFile);
+                currAudio = new WzMp3Streamer(soundProp, LoopBox.Checked);
+                TimeBar.Maximum = (int)currAudio.Length;
                 TimeBar.Minimum = 0;
+                currAudio.Play();
             }
             else
             {
@@ -91,7 +88,7 @@ namespace HaRepackerLib
             {
                 if (PauseButton.Visible == true) PauseButton_Click(null, null);
                 soundProp = value;
-                currSoundFile = "";
+                //currSoundFile = "";
                 if (currAudio != null && !currAudio.Disposed)
                     currAudio.Dispose();
                 currAudio = null;
@@ -103,6 +100,11 @@ namespace HaRepackerLib
                 CurrentPositionLabel.Text = "00:00 /";
                 TimeBar.Value = 0;
             }
+        }
+
+        private void LoopBox_CheckedChanged(object sender, EventArgs e)
+        {
+            currAudio.Repeat = LoopBox.Checked;
         }
     }
 }

@@ -560,7 +560,7 @@ namespace HaRepacker.GUI
         private void unloadAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Warning.Warn("Are you sure you want to unload all files?"))
-                Program.WzMan.UnloadAll(MainPanel);
+                Program.WzMan.UnloadAll();
         }
 
         private void reloadAllToolStripMenuItem_Click(object sender, EventArgs e)

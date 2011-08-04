@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 
-namespace HaRepackerLib
+namespace HaRepackerLib.Controls
 {
     partial class SoundPlayer
     {
@@ -77,6 +77,7 @@ namespace HaRepackerLib
             this.LoopBox.Size = new System.Drawing.Size(58, 21);
             this.LoopBox.TabIndex = 38;
             this.LoopBox.Text = "Loop";
+            this.LoopBox.CheckedChanged += new System.EventHandler(this.LoopBox_CheckedChanged);
             // 
             // TimeBar
             // 
