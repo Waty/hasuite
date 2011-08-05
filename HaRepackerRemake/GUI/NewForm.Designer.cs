@@ -58,7 +58,6 @@ namespace HaRepacker.GUI
             this.label6 = new System.Windows.Forms.Label();
             this.encryptionBox = new System.Windows.Forms.ComboBox();
             this.versionBox = new HaRepackerLib.Controls.IntegerInput();
-            ((System.ComponentModel.ISupportInitialize)(this.versionBox)).BeginInit();
             this.SuspendLayout();
             // 
             // nameBox
@@ -191,6 +190,7 @@ namespace HaRepacker.GUI
             this.versionBox.Name = "versionBox";
             this.versionBox.Size = new System.Drawing.Size(51, 20);
             this.versionBox.TabIndex = 13;
+            this.versionBox.Text = "1";
             this.versionBox.Value = 1;
             // 
             // NewForm
@@ -214,7 +214,6 @@ namespace HaRepacker.GUI
             this.Controls.Add(this.nameBox);
             this.Name = "NewForm";
             this.Text = "New...";
-            ((System.ComponentModel.ISupportInitialize)(this.versionBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

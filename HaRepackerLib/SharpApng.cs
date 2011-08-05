@@ -208,10 +208,20 @@ namespace SharpApng
             ReleaseData(pathPtr);
         }
 
-        [DllImport("apng.dll")]
+#if APNG32
+        private const string apngdll = "apng32.dll";
+#elif APNG64
+        private const string apngdll = "apng64.dll";
+#elif APNGIA64
+        private const string apngdll = "apngIA64.dll";
+#else
+#error APNG DLL undecided, please set it by defining APNG32\APNG64\APNGIA64 (according to your build type)
+#endif
+
+        [DllImport(apngdll)]
         public static extern void CreateFrame(IntPtr pdata, int num, int den, int i, int len);
 
-        [DllImport("apng.dll")]
+        [DllImport(apngdll)]
         public static extern void SaveAPNG(IntPtr path, int frameCount, int width, int height, int bytesPerPixel, byte firstFrameHidden);
     }
 }
