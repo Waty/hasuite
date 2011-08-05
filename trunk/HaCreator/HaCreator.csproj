@@ -451,10 +451,6 @@
       <Project>{28AAB36D-942E-4476-A000-0E9DE380F390}</Project>
       <Name>MapleLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\mp3sharp\Mp3Sharp.csproj">
-      <Project>{834CAB58-648D-47CC-AC6F-D01C08C809A4}</Project>
-      <Name>Mp3Sharp</Name>
-    </ProjectReference>
     <ProjectReference Include="..\NAudio\NAudio.csproj">
       <Project>{DA4F02E3-0B5E-42CD-B8D9-5583FA51D66E}</Project>
       <Name>NAudio</Name>
