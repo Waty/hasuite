@@ -91,6 +91,8 @@ namespace HaRepacker.GUI
             this.iMGToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fHMappingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renderMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -320,7 +322,7 @@ namespace HaRepacker.GUI
             this.removeToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.delete;
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Text = "Remove (Del)";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // undoToolStripMenuItem
@@ -358,7 +360,9 @@ namespace HaRepacker.GUI
             this.exportDataToolStripMenuItem,
             this.importToolStripMenuItem,
             this.optionsToolStripMenuItem,
-            this.searchToolStripMenuItem});
+            this.searchToolStripMenuItem,
+            this.copyToolStripMenuItem,
+            this.pasteToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 21);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -488,8 +492,22 @@ namespace HaRepacker.GUI
             this.searchToolStripMenuItem.Image = global::HaRepacker.Properties.Resources.find;
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             this.searchToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.searchToolStripMenuItem.Text = "Search";
+            this.searchToolStripMenuItem.Text = "Search (Ctrl+F)";
             this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.copyToolStripMenuItem.Text = "Copy (Ctrl+C)";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // pasteToolStripMenuItem
+            // 
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.pasteToolStripMenuItem.Text = "Paste (Ctrl+V)";
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // extrasToolStripMenuItem
             // 
@@ -591,6 +609,7 @@ namespace HaRepacker.GUI
             this.test1ToolStripMenuItem.Name = "test1ToolStripMenuItem";
             this.test1ToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.test1ToolStripMenuItem.Text = "Test1";
+            this.test1ToolStripMenuItem.Click += new System.EventHandler(this.test1ToolStripMenuItem_Click);
             // 
             // AbortButton
             // 
@@ -696,6 +715,8 @@ namespace HaRepacker.GUI
         private System.Windows.Forms.ToolStripMenuItem test1ToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem unloadAllToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem reloadAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
     }
 }
 

@@ -317,8 +317,8 @@ namespace HaCreator.GUI
             try
             {
                 HaRepacker.Program.WzMan = new HaRepackerLib.WzFileManager();
-                HaRepacker.Program.PrepareApplication();
-                HaRepacker.GUI.MainForm mf = new HaRepacker.GUI.MainForm(null, false);
+                bool firstRun = HaRepacker.Program.PrepareApplication();
+                HaRepacker.GUI.MainForm mf = new HaRepacker.GUI.MainForm(null, false, firstRun);
                 mf.unloadAllToolStripMenuItem.Visible = false;
                 mf.reloadAllToolStripMenuItem.Visible = false;
                 foreach (DictionaryEntry entry in Program.WzManager.wzFiles)

@@ -36,6 +36,7 @@ using System.Net;
 using System.Text;
 using System.Diagnostics;
 using HaRepackerLib.Controls;
+using AppModule;
 
 namespace HaRepacker.GUI
 {
@@ -43,9 +44,11 @@ namespace HaRepacker.GUI
     {
         private List<Object> settings = new List<object>();
 
-        public MainForm(string wzToLoad, bool usingPipes)
+        public MainForm(string wzToLoad, bool usingPipes, bool firstrun)
         {
             InitializeComponent();
+            if (firstrun)
+                new AboutForm().ShowDialog();
 #if DEBUG
             debugToolStripMenuItem.Visible = true;
 #endif
@@ -1285,6 +1288,69 @@ namespace HaRepacker.GUI
                 Help.ShowHelp(this, HelpFile);
             else
                 Warning.Error("Help could not be shown because the help file (" + HelpFile + ") was not found");
+        }
+
+/*        private void doSearchRec(WzDirectory wzdir)
+        {
+            foreach (WzDirectory dir in wzdir.WzDirectories)
+            {
+                doSearchRec(dir);
+            }
+            foreach (WzImage img in wzdir.WzImages)
+            {
+                if (!img.Name.Contains("Bgm")) continue;
+                img.ParseImage();
+                doSearchRec2(img);
+            }
+        }
+
+        private byte[] tHeader2 = WzSoundProperty.CreateHeader(22050);
+        private byte[] tHeader4 = WzSoundProperty.CreateHeader(44100);
+
+        private bool ArrEquals(byte[] a, byte[] b)
+        {
+            int c = 0;
+            if (a.Length != b.Length) return false;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] != b[i])
+                    c++;
+            }
+            return c == 0;
+        }
+
+        private void doSearchRec2(IPropertyContainer parent)
+        {
+            foreach (IWzImageProperty prop in parent.WzProperties)
+            {
+                if (prop is IPropertyContainer) doSearchRec2((IPropertyContainer)prop);
+                else if (prop is WzSoundProperty)
+                {
+                    int freq = ((WzSoundProperty)prop).Frequency;
+                    if (freq != 22050 && freq != 44100)
+                    {
+                    }
+                    if ((freq == 22050 && !ArrEquals(tHeader2, ((WzSoundProperty)prop).Header)) || (freq == 44100 && !ArrEquals(tHeader4, ((WzSoundProperty)prop).Header)))
+                    {
+                    }
+                }
+            }
+        }*/
+
+        private void test1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*WzDirectory wzdir = ((WzFile)((WzNode)MainPanel.DataTree.SelectedNode).Tag).WzDirectory;
+            doSearchRec(wzdir);*/
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainPanel.DoCopy();
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainPanel.DoPaste();
         }
     }
 }

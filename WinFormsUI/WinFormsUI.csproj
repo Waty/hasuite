@@ -299,9 +299,7 @@
     <None Include="Docking\Resources\DockIndicator_PanelTop_Active.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MIT.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="MIT.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Docking\Resources\DockPane_AutoHide.bmp" />
