@@ -57,6 +57,6 @@ namespace HaRepackerLib
 
     public static class Constants
     {
-        public const int Version = 421;
+        public const int Version = 422;
     }
 }

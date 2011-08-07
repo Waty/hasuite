@@ -9,7 +9,7 @@ using System.Diagnostics;
 using AppModule.InterProcessComm;
 using AppModule.NamedPipes;
 
-namespace HaRepacker {
+namespace AppModule {
 
     public delegate string PipeRequestHandler(string request);
 

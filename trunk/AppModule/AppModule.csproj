@@ -127,7 +127,9 @@
     <Compile Include="NamedPipes\NamedPipeWrapper.cs" />
     <Compile Include="NamedPipes\PipeHandle.cs" />
     <Compile Include="NamedPipes\ServerPipeConnection.cs" />
+    <Compile Include="PipeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerNamedPipe.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

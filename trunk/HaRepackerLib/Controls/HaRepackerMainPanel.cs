@@ -398,6 +398,58 @@ namespace HaRepackerLib.Controls
             throw new Exception("cant get here anyway");
         }
 
+        public void DoCopy()
+        {
+            if (!Warning.Warn("Copy WZ nodes to clipboard? (warning - can take a lot of time if many nodes are selected)")) return;
+            clipboard.Clear();
+            foreach (WzNode node in DataTree.SelectedNodes)
+            {
+                IWzObject clone = null;
+                if (node.Tag is WzDirectory)
+                {
+                    Warning.Error("You can't copy directories because they require too much memory");
+                    continue;
+                }
+                else if (node.Tag is WzImage)
+                {
+                    clone = ((WzImage)node.Tag).DeepClone();
+                }
+                else if (node.Tag is IWzImageProperty)
+                {
+                    clone = ((IWzImageProperty)node.Tag).DeepClone();
+                }
+                else continue;
+                clipboard.Add(clone);
+            }
+        }
+
+        public void DoPaste()
+        {
+            if (!Warning.Warn("Paste WZ nodes from clipboard? (warning - can take a lot of time if many nodes are pasted)")) return;
+            yesToAll = false;
+            noToAll = false;
+            WzNode parent = (WzNode)DataTree.SelectedNode;
+            IWzObject parentObj = (IWzObject)parent.Tag;
+            if (parentObj is WzFile) parentObj = ((WzFile)parentObj).WzDirectory;
+
+            foreach (IWzObject obj in clipboard)
+            {
+                if (((obj is WzDirectory || obj is WzImage) && parentObj is WzDirectory) || (obj is IWzImageProperty && parentObj is IPropertyContainer))
+                {
+                    WzNode node = new WzNode(obj);
+                    WzNode child = WzNode.GetChildNode(parent, node.Text);
+                    if (child != null)
+                    {
+                        if (ShowReplaceDialog(node.Text))
+                            child.Delete();
+                        else return;
+                    }
+                    parent.AddNode(node);
+
+                }
+            }
+        }
+
         private void DataTree_KeyDown(object sender, KeyEventArgs e)
         {
             if (!DataTree.Focused) return;
@@ -418,52 +470,10 @@ namespace HaRepackerLib.Controls
             if (ctrl) switch (filteredKeys)
                 {
                     case Keys.C:
-                        if (!Warning.Warn("Copy WZ nodes to clipboard? (warning - can take a lot of time if many nodes are selected)")) return;
-                        clipboard.Clear();
-                        foreach (WzNode node in DataTree.SelectedNodes)
-                        {
-                            IWzObject clone = null;
-                            if (node.Tag is WzDirectory)
-                            {
-                                Warning.Error("You can't copy directories because they require too much memory");
-                                continue;
-                            }
-                            else if (node.Tag is WzImage)
-                            {
-                                clone = ((WzImage)node.Tag).DeepClone();
-                            }
-                            else if (node.Tag is IWzImageProperty)
-                            {
-                                clone = ((IWzImageProperty)node.Tag).DeepClone();
-                            }
-                            else continue;
-                            clipboard.Add(clone);
-                        }
+                        DoCopy();
                         break;
                     case Keys.V:
-                        if (!Warning.Warn("Paste WZ nodes from clipboard? (warning - can take a lot of time if many nodes are pasted)")) return;
-                        yesToAll = false;
-                        noToAll = false;
-                        WzNode parent = (WzNode)DataTree.SelectedNode;
-                        IWzObject parentObj = (IWzObject)parent.Tag;
-                        if (parentObj is WzFile) parentObj = ((WzFile)parentObj).WzDirectory;
-
-                        foreach (IWzObject obj in clipboard)
-                        {
-                            if (((obj is WzDirectory || obj is WzImage) && parentObj is WzDirectory) || (obj is IWzImageProperty && parentObj is IPropertyContainer))
-                            {
-                                WzNode node = new WzNode(obj);
-                                WzNode child = WzNode.GetChildNode(parent, node.Text);
-                                if (child != null)
-                                {
-                                    if (ShowReplaceDialog(node.Text))
-                                        child.Delete();
-                                    else return;
-                                }
-                                parent.AddNode(node);
-
-                            }
-                        }
+                        DoPaste();
                         break;
                     case Keys.F:
                         findStrip.Visible = true;

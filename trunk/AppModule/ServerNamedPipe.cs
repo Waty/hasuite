@@ -5,7 +5,7 @@ using System.IO;
 using AppModule.InterProcessComm;
 using AppModule.NamedPipes;
 
-namespace HaRepacker
+namespace AppModule
 {
 
 	public sealed class ServerNamedPipe : IDisposable {

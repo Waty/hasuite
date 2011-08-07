@@ -261,9 +261,7 @@
     <None Include="ColourTables\uniform.act" />
     <None Include="ColourTables\web216.act" />
     <None Include="ColourTables\windows.act" />
-    <None Include="CPOL.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="CPOL.txt" />
     <EmbeddedResource Include="Palettes\PaletteControl.resx">
       <DependentUpon>PaletteControl.cs</DependentUpon>
     </EmbeddedResource>

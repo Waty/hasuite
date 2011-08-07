@@ -44,12 +44,12 @@ namespace HaRepacker
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            PrepareApplication();
-            Application.Run(new MainForm(wzToLoad, true));
+            bool firstRun = PrepareApplication();
+            Application.Run(new MainForm(wzToLoad, true, firstRun));
             EndApplication(true);
         }
 
-        public static void PrepareApplication()
+        public static bool PrepareApplication()
         {
             SettingsManager = new WzSettingsManager(System.IO.Path.Combine(Application.StartupPath, "HRSettings.wz"), typeof(UserSettings), typeof(ApplicationSettings));
             int tryCount = 0;
@@ -69,9 +69,10 @@ namespace HaRepacker
                 else
                 {
                     Warning.Error("Could not load settings file, make sure it is not in use. If it is not, delete it and try again.");
-                    return;
+                    return true;
                 }
             }
+            bool firstRun = ApplicationSettings.FirstRun;
             if (ApplicationSettings.FirstRun)
             {
                 new FirstRunForm().ShowDialog();
@@ -87,6 +88,7 @@ namespace HaRepacker
                 wzKey.CreateSubKey("DefaultIcon").SetValue("", path + ",1");
                 wzKey.CreateSubKey("shell\\open\\command").SetValue("", "\"" + path + "\" \"%1\"");
             }
+            return firstRun;
         }
 
         public static void EndApplication(bool usingPipes)

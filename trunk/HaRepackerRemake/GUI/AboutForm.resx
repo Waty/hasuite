@@ -118,8 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label4.Text" xml:space="preserve">
-    <value>Disclaimer
-This program and all libraries included with it are provided free of charge and for educational and testing purposes only. You may not use any of these things to commit any action which is illegal in the United States or where you reside.</value>
+    <value>HaRepacker - WZ extractor and repacker
+Copyright (C) 2009-2011 haha01haha01
+
+Disclaimer
+This program and all libraries included with it are provided free of charge and for educational and testing purposes only. You may not it to commit any action which is illegal in the United States or where you reside.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/
+</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
