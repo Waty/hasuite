@@ -56,9 +56,9 @@ namespace HaRepacker.GUI
             // 
             this.encryptionBox.FormattingEnabled = true;
             this.encryptionBox.Items.AddRange(new object[] {
-            "GMS(T) (v56+)",
-            "EMS\\KMS(T)\\MSEA (v91-)",
-            "BMS\\GMS (v55-)\\MSEA (v92+)"});
+            "GMS (old)",
+            "MSEA (old)",
+            "BMS\\GMS\\MSEA"});
             this.encryptionBox.Location = new System.Drawing.Point(75, 12);
             this.encryptionBox.Name = "encryptionBox";
             this.encryptionBox.Size = new System.Drawing.Size(178, 21);
@@ -80,6 +80,7 @@ namespace HaRepacker.GUI
             this.versionBox.Name = "versionBox";
             this.versionBox.Size = new System.Drawing.Size(178, 20);
             this.versionBox.TabIndex = 3;
+            this.versionBox.Text = "0";
             this.versionBox.Value = 0;
             // 
             // label1
