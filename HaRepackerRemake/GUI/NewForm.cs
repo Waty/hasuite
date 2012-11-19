@@ -31,7 +31,7 @@ namespace HaRepacker.GUI
             this.panel = panel;
             InitializeComponent();
             encryptionBox.SelectedIndex = (int)ApplicationSettings.MapleVersion;
-            versionBox.Value = ApplicationSettings.FileVersion;
+            versionBox.Value = 1;
         }
 
         private void regBox_CheckedChanged(object sender, EventArgs e)
@@ -48,7 +48,6 @@ namespace HaRepacker.GUI
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            ApplicationSettings.FileVersion = versionBox.Value;
             if (regBox.Checked)
             {
                 WzFile file = new WzFile((short)versionBox.Value, (WzMapleVersion)encryptionBox.SelectedIndex);

@@ -502,15 +502,15 @@ namespace HaRepacker.GUI
                 int version = int.Parse(
                     Encoding.ASCII.GetString(
                     client.DownloadData(
-                    "http://www.xnams.co.cc/forum/includes/scripts/hr/version.txt"
+                    "http://bugale.bplaced.net/forum/includes/scripts/hr/version.txt"
                     )));
                 string notice = Encoding.ASCII.GetString(
                     client.DownloadData(
-                    "http://www.xnams.co.cc/forum/includes/scripts/hr/notice.txt"
+                    "http://bugale.bplaced.net/forum/includes/scripts/hr/notice.txt"
                     ));
                 string url = Encoding.ASCII.GetString(
                     client.DownloadData(
-                    "http://www.xnams.co.cc/forum/includes/scripts/hr/url.txt"
+                    "http://bugale.bplaced.net/forum/includes/scripts/hr/url.txt"
                     ));
                 if (version <= Constants.Version)
                     return;
@@ -556,7 +556,9 @@ namespace HaRepacker.GUI
                 if (WzTool.IsListFile(name))
                     new ListEditor(name, (WzMapleVersion)encryptionBox.SelectedIndex).Show();
                 else
-                    Program.WzMan.LoadWzFile(name, (WzMapleVersion)encryptionBox.SelectedIndex, MainPanel);
+                {
+                    WzFile f = Program.WzMan.LoadWzFile(name, (WzMapleVersion)encryptionBox.SelectedIndex, MainPanel);
+                }
             }
         }
 
@@ -929,6 +931,7 @@ namespace HaRepacker.GUI
                 if (!int.TryParse(subprop.Name, out foo)) return false;
                 props.Add((WzCanvasProperty)subprop);
             }
+            if (props.Count < 2) return false;
             props.Sort(new Comparison<WzCanvasProperty>(AnimationBuilder.PropertySorter));
             for (int i = 0; i < props.Count; i++) if (i.ToString() != props[i].Name) return false;
             return true;
@@ -1351,6 +1354,28 @@ namespace HaRepacker.GUI
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainPanel.DoPaste();
+        }
+
+        private void asdfToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WzFile f = new WzFile(@"C:\Mob.wz", WzMapleVersion.BMS);
+            //WzFile f = new WzFile(@"C:\Nexon\MapleStoryExt\Skill.wz", WzMapleVersion.BMS);
+            f.ParseWzFile();
+            foreach (WzImage mob in f.WzDirectory.WzImages)
+            {
+                mob.ParseImage();
+                WzSubProperty info = (WzSubProperty)mob["info"];
+                if (info != null)
+                {
+                    WzCompressedIntProperty bodyatt = (WzCompressedIntProperty)info["bodyAttack"];
+                    if (bodyatt != null)
+                    {
+                        bodyatt.Value = 0;
+                        mob.Changed = true;
+                    }
+                }
+            }
+            f.SaveToDisk(@"C:\Mob2.wz");
         }
     }
 }

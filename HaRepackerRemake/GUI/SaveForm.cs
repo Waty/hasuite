@@ -57,31 +57,26 @@ namespace HaRepacker.GUI
             wzf.MapleVersion = (WzMapleVersion)encryptionBox.SelectedIndex;
             if (wzf is WzFile)
                 ((WzFile)wzf).Version = (short)versionBox.Value;
-            string newWzLoc;
             if (wzf.FilePath != null && wzf.FilePath.ToLower() == dialog.FileName.ToLower())
             {
                 wzf.SaveToDisk(dialog.FileName + "$tmp");
                 wzNode.Delete();
                 File.Delete(dialog.FileName);
                 File.Move(dialog.FileName + "$tmp", dialog.FileName);
-                newWzLoc = dialog.FileName + "$tmp";
             }
             else
             {
                 wzf.SaveToDisk(dialog.FileName);
                 wzNode.Delete();
-                newWzLoc = dialog.FileName;
             }
-            Program.WzMan.LoadWzFile(newWzLoc, (WzMapleVersion)encryptionBox.SelectedIndex, panel);
+            Program.WzMan.LoadWzFile(dialog.FileName, (WzMapleVersion)encryptionBox.SelectedIndex, panel);
             Close();
         }
 
         private void SaveForm_Load(object sender, EventArgs e)
         {
             encryptionBox.SelectedIndex = (int)wzf.MapleVersion;
-            if (wzf is WzFile)
-                versionBox.Value = ((WzFile)wzf).Version;
-            else versionBox.Enabled = false;
+            versionBox.Value = wzf.Version;
         }
     }
 }

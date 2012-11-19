@@ -176,9 +176,9 @@ namespace HaRepacker.GUI
             // 
             this.encryptionBox.FormattingEnabled = true;
             this.encryptionBox.Items.AddRange(new object[] {
-            "GMS(T) (v56+)",
-            "EMS\\KMS(T)\\MSEA (v91-)",
-            "BMS\\GMS (v55-)\\MSEA (v92+)"});
+            "GMS (old)",
+            "MSEA (old)",
+            "BMS\\GMS\\MSEA"});
             this.encryptionBox.Location = new System.Drawing.Point(75, 87);
             this.encryptionBox.Name = "encryptionBox";
             this.encryptionBox.Size = new System.Drawing.Size(205, 21);

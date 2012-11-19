@@ -70,25 +70,26 @@ namespace HaRepackerLib
             LoadWzFile(path, encVersion, (short)-1, panel);
         }
 
-        public void LoadWzFile(string path, HaRepackerMainPanel panel)
+        public WzFile LoadWzFile(string path, HaRepackerMainPanel panel)
         {
             short fileVersion = -1;
             bool isList = WzTool.IsListFile(path);
-            LoadWzFile(path, WzTool.DetectMapleVersion(path, out fileVersion), fileVersion, panel);
+            return LoadWzFile(path, WzTool.DetectMapleVersion(path, out fileVersion), fileVersion, panel);
         }
 
-        public void LoadWzFile(string path, WzMapleVersion encVersion, HaRepackerMainPanel panel)
+        public WzFile LoadWzFile(string path, WzMapleVersion encVersion, HaRepackerMainPanel panel)
         {
-            LoadWzFile(path, encVersion, (short)-1, panel);
+            return LoadWzFile(path, encVersion, (short)-1, panel);
         }
 
-        private void LoadWzFile(string path, WzMapleVersion encVersion, short version, HaRepackerMainPanel panel)
+        private WzFile LoadWzFile(string path, WzMapleVersion encVersion, short version, HaRepackerMainPanel panel)
         {
             WzFile newFile;
-            if (!OpenWzFile(path, encVersion, version, out newFile)) return;
+            if (!OpenWzFile(path, encVersion, version, out newFile)) return null;
             WzNode node = new WzNode(newFile);
             panel.DataTree.Nodes.Add(node);
             SortNodesRecursively(node);
+            return newFile;
         }
 
         public void InsertWzFileUnsafe(WzFile f, HaRepackerMainPanel panel)

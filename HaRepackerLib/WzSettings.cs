@@ -49,14 +49,13 @@ namespace HaRepackerLib
     {
         public static bool Maximized = false;
         public static Size WindowSize = new Size(800, 600);
-        public static int FileVersion = 94;
         public static bool FirstRun = true;
         public static string LastBrowserPath = "";
-        public static WzMapleVersion MapleVersion = WzMapleVersion.GMS;
+        public static WzMapleVersion MapleVersion = WzMapleVersion.BMS;
     }
 
     public static class Constants
     {
-        public const int Version = 422;
+        public const int Version = 423;
     }
 }
